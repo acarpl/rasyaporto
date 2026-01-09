@@ -1,572 +1,269 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rasya Falqi Gani - Full Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasya Falqi Gani — Creative Technologist</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
-        body {
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
-        .cursor-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.15;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 70%);
-            transition: transform 0.3s ease;
-        }
+* { font-family: 'Inter', sans-serif; }
 
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            opacity: 0.2;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
-        }
+body {
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-        .gradient-text {
-            background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 200%;
-            animation: gradient-shift 3s ease infinite;
-        }
+.cursor-glow{
+  position:fixed;
+  width:600px;height:600px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.15;
+  background:radial-gradient(circle, rgba(99,102,241,.4), transparent 70%);
+  z-index:50;
+}
 
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
+.bg-grid{
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(99,102,241,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,.1) 1px, transparent 1px);
+  background-size:50px 50px;
+  opacity:.2;
+  z-index:0;
+}
 
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: float 6s ease-in-out infinite;
-        }
+.gradient-text{
+  background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:grad 4s ease infinite;
+  background-size:200% 200%;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); }
-        }
+@keyframes grad{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
 
-        .card {
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(31, 41, 55, 0.9));
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
+.card{
+  background:linear-gradient(135deg,rgba(17,24,39,.9),rgba(31,41,55,.9));
+  border:1px solid rgba(99,102,241,.3);
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(99,102,241,.6)}
 
-        .card:hover {
-            border-color: rgba(99, 102, 241, 0.6);
-            transform: translateY(-5px);
-        }
+.skill{
+  padding:.5rem 1rem;
+  border-radius:999px;
+  background:rgba(99,102,241,.1);
+  border:1px solid rgba(99,102,241,.3);
+  font-size:.85rem;
+}
 
-        .skill-tag {
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.5);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: #6366f1;
-            border-radius: 50%;
-            border: 4px solid #000;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid rgba(99, 102, 241, 0.5);
-            object-fit: cover;
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-dot {
-                left: 0;
-                transform: none;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+.fade-in{opacity:0;transform:translateY(40px);transition:.8s}
+.fade-in.visible{opacity:1;transform:none}
+</style>
 </head>
+
 <body>
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Background Grid -->
-    <div class="bg-grid"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="bg-grid"></div>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6">
-        <div class="floating-orb bg-indigo-500 w-64 h-64 top-20 left-10 opacity-20"></div>
-        <div class="floating-orb bg-purple-500 w-96 h-96 bottom-20 right-10 opacity-20" style="animation-delay: 1s;"></div>
-        
-        <div class="relative z-10 max-w-6xl w-full text-center space-y-8 fade-in">
-            <!-- Profile Photo -->
-            <div class="flex justify-center mb-6">
-                <img src="https://github.com/acarpl/rasyaporto/blob/main/IMG_20260105_162733.jpg?raw=true" 
-                     alt="Rasya Falqi Gani" 
-                     class="profile-img"
-                     id="profilePhoto">
-            </div>
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center px-6 relative">
+<div class="max-w-5xl text-center fade-in relative z-10">
 
-            <div class="flex items-center gap-2 text-indigo-400 justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                </svg>
-                <span class="text-sm tracking-widest">FULL STACK DEVELOPER</span>
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-bold gradient-text">
-                Rasya Falqi Gani
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
-                Building the future of web applications with modern technologies
-            </p>
+<img src="https://github.com/acarpl/rasyaporto/blob/main/IMG_20260105_162733.jpg?raw=true"
+class="mx-auto w-44 h-44 rounded-full border-4 border-indigo-500 shadow-lg mb-6 object-cover">
 
-            <div class="flex flex-wrap justify-center gap-4 pt-8">
-                <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg shadow-indigo-500/50">
-                    Contact Me
-                </a>
-                <a href="#gallery" class="px-8 py-4 border-2 border-indigo-500 rounded-full font-semibold hover:bg-indigo-500/10 transition-all">
-                    View Gallery
-                </a>
-            </div>
-        </div>
-    </section>
+<div class="text-indigo-400 tracking-widest text-sm mb-3">
+FULL STACK DEVELOPER • VISUAL ARTIST • ART DIRECTOR
+</div>
 
-    <!-- Profile Section -->
-    <section id="profile" class="relative py-20 px-6 fade-in">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Profile</h2>
-            <div class="card rounded-2xl p-8">
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    Siswa Rekayasa Perangkat Lunak yang aktif membangun berbagai proyek web dan sistem digital menggunakan teknologi modern. Berpengalaman dalam pengembangan aplikasi full stack dengan Laravel serta JavaScript framework seperti React (Vite), Next.js, dan NestJS. Terbiasa mengerjakan proyek nyata mulai dari perancangan UI, pengelolaan database, hingga integrasi payment gateway. Memiliki minat besar pada teknologi, desain, dan pengembangan produk digital yang rapi, scalable, dan efisien.
-                </p>
-            </div>
-        </div>
-    </section>
+<h1 class="text-6xl md:text-8xl font-extrabold gradient-text mb-6">
+Rasya Falqi Gani
+</h1>
 
-    <!-- Skills Section -->
-    <section id="skills" class="relative py-20 px-6 fade-in">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text">Skills</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card rounded-2xl p-6">
-                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Front-End</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">HTML</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">CSS</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Tailwind CSS</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">React.js</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Vite</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Next.js</span>
-                    </div>
-                </div>
+<p class="text-gray-400 text-xl max-w-2xl mx-auto">
+Engineering digital products where code, visual, and sound meet.
+</p>
 
-                <div class="card rounded-2xl p-6">
-                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Back-End</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">NestJS</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">REST API Development</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Object-Oriented Programming (OOP)</span>
-                    </div>
-                </div>
-
-                <div class="card rounded-2xl p-6">
-                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Database</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">MySQL</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">SQLite</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="card rounded-2xl p-6">
-                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Other</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Payment Gateway Integration (Midtrans)</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">UI/UX Design (Figma)</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Adobe Photoshop</span>
-                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Premiere Pro</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="relative py-20 px-6 fade-in">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text">Gallery</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project 1">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">Dashboard Analytics</h3>
-                        <p class="text-sm text-gray-300">Modern dashboard design with data visualization</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop" alt="Project 2">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
-                        <p class="text-sm text-gray-300">Full-featured online shopping website</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&h=600&fit=crop" alt="Project 3">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">Mobile App Design</h3>
-                        <p class="text-sm text-gray-300">iOS and Android application interface</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" alt="Project 4">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">Web Application</h3>
-                        <p class="text-sm text-gray-300">Responsive web app with modern UI</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop" alt="Project 5">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">API Development</h3>
-                        <p class="text-sm text-gray-300">RESTful API backend system</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Project 6">
-                    <div class="gallery-overlay">
-                        <h3 class="text-xl font-bold mb-2">Data Visualization</h3>
-                        <p class="text-sm text-gray-300">Interactive charts and graphs</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="relative py-20 px-6 fade-in">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text">Experience</h2>
-            <div class="space-y-8 relative">
-                <!-- Timeline Line -->
-                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-500"></div>
-                
-                <!-- Experience 1 -->
-                <div class="relative md:w-1/2 md:pr-8">
-                    <div class="timeline-dot"></div>
-                    <div class="ml-8 md:ml-0">
-                        <div class="card rounded-2xl p-6">
-                            <div class="text-indigo-400 text-sm mb-2">August – September 2025</div>
-                            <h3 class="text-xl font-bold mb-1">IT Support (Tap On Bus Transjakarta)</h3>
-                            <div class="text-gray-400 mb-4">PT. Bangun Kreatif Abadi</div>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Maintenance and checking of operational devices
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Ensuring daily operational reliability
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Working with SOP, field work, and troubleshooting
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="relative md:w-1/2 md:ml-auto md:pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="ml-8 md:ml-0">
-                        <div class="card rounded-2xl p-6">
-                            <div class="text-indigo-400 text-sm mb-2">April – September 2025</div>
-                            <h3 class="text-xl font-bold mb-1">Full Stack Developer (Footstop Project)</h3>
-                            <div class="text-gray-400 mb-4">PT. Bangun Kreatif Abadi</div>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Developed an online shoe store with limited stock concept
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Implemented product, stock, and transaction management system
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Integrated Midtrans payment gateway
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Designed user flow, database structure, and business logic
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            <!-- Experience 3 -->
-                <div class="relative md:w-1/2 md:pr-8">
-                    <div class="timeline-dot"></div>
-                    <div class="ml-8 md:ml-0">
-                        <div class="card rounded-2xl p-6">
-                            <div class="text-indigo-400 text-sm mb-2">November 2024 – Present</div>
-                            <h3 class="text-xl font-bold mb-1">Bille South Side all in one Website</h3>
-                            <div class="text-gray-400 mb-4">Bille South Side</div>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Maintenance and checking of operational devices
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Ensuring daily operational reliability
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start">
-                                    <span class="text-indigo-400 mr-2">▹</span>
-                                    Working with SOP, field work, and troubleshooting
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="relative py-20 px-6 fade-in">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text">Education</h2>
-            <div class="card rounded-2xl p-8">
-                <h3 class="text-2xl font-bold mb-2">SMK Negeri 1 Kota Bekasi</h3>
-                <div class="text-indigo-400 text-lg mb-2">Rekayasa Perangkat Lunak</div>
-                <div class="text-gray-400">2023 – Present</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative py-20 px-6 fade-in">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text text-center">Get In Touch</h2>
-            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <a href="https://www.instagram.com/rasya.falqi/" target="_blank"
-   class="card rounded-2xl p-6 flex items-center gap-4 hover:scale-[1.03] transition">
-    <svg class="w-8 h-8 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5z"/>
-        <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
-        <circle cx="17.5" cy="6.5" r="1"/>
-    </svg>
-    <div>
-        <div class="text-sm text-gray-400">Instagram</div>
-        <div class="font-semibold">@rasya.gani</div>
-    </div>
+<div class="mt-10 flex gap-4 justify-center flex-wrap">
+<a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 font-semibold shadow-lg">
+Contact Me
 </a>
-
-<a href="https://github.com/acarpl" target="_blank"
-   class="card rounded-2xl p-6 flex items-center gap-4 hover:scale-[1.03] transition">
-    <svg class="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 .5A12 12 0 000 12.75c0 5.5 3.438 10.125 8.205 11.775.6.113.82-.275.82-.6v-2.1c-3.338.75-4.033-1.65-4.033-1.65-.546-1.425-1.333-1.8-1.333-1.8-1.089-.75.082-.75.082-.75 1.205.075 1.84 1.275 1.84 1.275 1.07 1.875 2.807 1.35 3.495 1.05.108-.825.418-1.35.762-1.65-2.665-.3-5.466-1.35-5.466-6a4.65 4.65 0 011.23-3.225 4.2 4.2 0 01.117-3.18s1.005-.33 3.3 1.23a11.1 11.1 0 016 0c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.243 2.88.12 3.18a4.65 4.65 0 011.23 3.225c0 4.65-2.805 5.7-5.475 6 .43.375.81 1.125.81 2.25v3.33c0 .33.216.72.825.6C20.565 22.875 24 18.25 24 12.75A12 12 0 0012 .5z"/>
-    </svg>
-    <div>
-        <div class="text-sm text-gray-400">GitHub</div>
-        <div class="font-semibold">acarpl</div>
-    </div>
+<a href="#works" class="px-8 py-4 rounded-full border border-indigo-500">
+View Works
 </a>
+</div>
 
-<a href="https://linkedin.com/in/rasya-gani" target="_blank"
-   class="card rounded-2xl p-6 flex items-center gap-4 hover:scale-[1.03] transition">
-    <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452H17.21v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.94v5.666H9.004V9h3.112v1.561h.045c.434-.82 1.494-1.683 3.073-1.683 3.286 0 3.89 2.164 3.89 4.977v6.597zM5.337 7.433a1.804 1.804 0 110-3.607 1.804 1.804 0 010 3.607zM6.956 20.452H3.718V9h3.238v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z"/>
-    </svg>
-    <div>
-        <div class="text-sm text-gray-400">LinkedIn</div>
-        <div class="font-semibold">Rasya Gani</div>
-    </div>
-</a>
+</div>
+</section>
 
-                <a href="mailto:rasyafalqi53@gmail.com" class="card rounded-2xl p-6 flex items-center gap-4">
-                    <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <div>
-                        <div class="text-sm text-gray-400">Email</div>
-                        <div class="font-semibold">rasyafalqi53@gmail.com</div>
-                    </div>
-                </a>
-                
-                <a href="tel:+6285161193121" class="card rounded-2xl p-6 flex items-center gap-4">
-                    <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    <div>
-                        <div class="text-sm text-gray-400">Phone</div>
-                        <div class="font-semibold">+62 851 6119 3121</div>
-                    </div>
-                </a>
-                
-                <div class="card rounded-2xl p-6 flex items-center gap-4">
-                    <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <div>
-                        <div class="text-sm text-gray-400">Location</div>
-                        <div class="font-semibold">Bekasi Barat, Indonesia</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PROFILE -->
+<section class="py-24 px-6 fade-in">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-4xl font-bold gradient-text mb-6">Profile</h2>
+<div class="card p-8 rounded-2xl text-gray-300 leading-relaxed">
+Siswa Rekayasa Perangkat Lunak dengan fokus pada pengembangan sistem digital,
+visual identity, dan creative direction. Berpengalaman membangun aplikasi
+full-stack serta mengelola konsep visual untuk brand, musik, dan produk digital.
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="relative py-8 px-6 border-t border-indigo-500/30">
-        <div class="max-w-6xl mx-auto text-center text-gray-400 relative z-10">
-            <p>© 2026 Rasya Falqi Gani.</p>
-        </div>
-    </footer>
+<!-- CREATIVE DIRECTION -->
+<section class="py-24 px-6 fade-in">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-4xl font-bold gradient-text mb-12">Creative Direction</h2>
 
-    <script>
-        // Cursor Glow Effect
-        const cursorGlow = document.getElementById('cursorGlow');
-        document.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = (e.clientX - 300) + 'px';
-            cursorGlow.style.top = (e.clientY - 300) + 'px';
-        });
+<div class="grid md:grid-cols-2 gap-6">
+<div class="card p-6 rounded-2xl">
+<h3 class="text-xl font-bold text-indigo-400 mb-2">Visual Artist</h3>
+<p class="text-gray-300">
+Visual storytelling through digital art, photography, and experimental visuals.
+</p>
+</div>
 
-        // Scroll Fade-In Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<div class="card p-6 rounded-2xl">
+<h3 class="text-xl font-bold text-indigo-400 mb-2">Art Director</h3>
+<p class="text-gray-300">
+Defining mood, aesthetic direction, branding system, and visual consistency.
+</p>
+</div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+<div class="card p-6 rounded-2xl">
+<h3 class="text-xl font-bold text-indigo-400 mb-2">Photographer</h3>
+<p class="text-gray-300">
+Urban & portrait photography focused on emotion, lighting, and composition.
+</p>
+</div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+<div class="card p-6 rounded-2xl">
+<h3 class="text-xl font-bold text-indigo-400 mb-2">Music Enthusiast</h3>
+<p class="text-gray-300">
+Strong interest in music culture, sound aesthetics, and visual identity for bands.
+</p>
+</div>
+</div>
+</div>
+</section>
 
-        // Profile Photo Upload Functionality
-        document.getElementById('profilePhoto').addEventListener('click', function() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.onchange = function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        document.getElementById('profilePhoto').src = event.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-            input.click();
-        });
-    </script>
+<!-- SKILLS -->
+<section class="py-24 px-6 fade-in">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-4xl font-bold gradient-text mb-12">Skills</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card p-6 rounded-2xl">
+<h3 class="text-indigo-400 font-bold mb-3">Tech Stack</h3>
+<div class="flex flex-wrap gap-2">
+<span class="skill">Laravel</span>
+<span class="skill">React</span>
+<span class="skill">Next.js</span>
+<span class="skill">NestJS</span>
+<span class="skill">Tailwind</span>
+<span class="skill">MySQL</span>
+<span class="skill">Midtrans</span>
+</div>
+</div>
+
+<div class="card p-6 rounded-2xl">
+<h3 class="text-indigo-400 font-bold mb-3">Creative Stack</h3>
+<div class="flex flex-wrap gap-2">
+<span class="skill">Art Direction</span>
+<span class="skill">Visual Storytelling</span>
+<span class="skill">Photography</span>
+<span class="skill">Color Grading</span>
+<span class="skill">Brand Identity</span>
+<span class="skill">Music Visual Concept</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- WORKS -->
+<section id="works" class="py-24 px-6 fade-in">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-4xl font-bold gradient-text mb-12">Selected Works</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="card rounded-2xl overflow-hidden">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" class="h-56 w-full object-cover">
+<div class="p-4">
+<span class="text-xs text-indigo-400">Digital Product</span>
+<h3 class="font-bold">Web Application</h3>
+</div>
+</div>
+
+<div class="card rounded-2xl overflow-hidden">
+<img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" class="h-56 w-full object-cover">
+<div class="p-4">
+<span class="text-xs text-purple-400">Photography</span>
+<h3 class="font-bold">Urban Portrait</h3>
+</div>
+</div>
+
+<div class="card rounded-2xl overflow-hidden">
+<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800" class="h-56 w-full object-cover">
+<div class="p-4">
+<span class="text-xs text-pink-400">Music & Art Direction</span>
+<h3 class="font-bold">Band Visual Concept</h3>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="py-24 px-6 fade-in text-center">
+<p class="max-w-3xl mx-auto text-gray-400 text-lg">
+I believe great digital products are not only built with clean code,
+but also with strong visual identity, emotion, and storytelling.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 fade-in">
+<div class="max-w-5xl mx-auto text-center">
+<h2 class="text-4xl font-bold gradient-text mb-10">Get In Touch</h2>
+<p class="text-gray-400 mb-6">Bekasi Barat, Indonesia</p>
+<p class="text-gray-300">rasyafalqi53@gmail.com</p>
+</div>
+</section>
+
+<footer class="py-8 text-center text-gray-500 border-t border-indigo-500/20">
+© 2026 Rasya Falqi Gani
+</footer>
+
+<script>
+const glow=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',e=>{
+glow.style.left=(e.clientX-300)+'px';
+glow.style.top=(e.clientY-300)+'px';
+});
+
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add('visible');
+});
+},{threshold:.1});
+
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+
 </body>
 </html>
