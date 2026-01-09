@@ -5,60 +5,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rasya Falqi Gani – Creative Technologist</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
       body {
         background: #0b0b0f;
       }
+
       .gradient-text {
         background: linear-gradient(90deg, #6366f1, #a855f7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+
       .card {
         background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(14px);
+        backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
       }
+
+      .card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(99, 102, 241, 0.3);
+        transform: translateY(-2px);
+      }
+
       .skill-tag {
         padding: 0.4rem 0.8rem;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.06);
         font-size: 0.8rem;
+        transition: all 0.2s ease;
+      }
+
+      .skill-tag:hover {
+        background: rgba(99, 102, 241, 0.2);
+        transform: scale(1.05);
+      }
+
+      .work-box {
+        height: 280px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .work-box:hover {
+        border-color: rgba(99, 102, 241, 0.3);
+        transform: translateY(-4px);
+      }
+
+      .work-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .work-box:hover img {
+        transform: scale(1.05);
+      }
+
+      .work-box-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(11, 11, 15, 0.9), transparent);
+        display: flex;
+        align-items: flex-end;
+        padding: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .work-box:hover .work-box-overlay {
+        opacity: 1;
+      }
+
+      .work-box-title {
+        color: white;
+        font-weight: 600;
+        font-size: 1.125rem;
+      }
+
+      .glow {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: #6366f1;
+        filter: blur(140px);
+        opacity: 0.35;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .experience-card {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .experience-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #6366f1, #a855f7);
+      }
+
+      @media (max-width: 768px) {
+        .glow {
+          width: 200px;
+          height: 200px;
+        }
       }
     </style>
   </head>
 
-  <body class="text-white font-sans">
+  <body class="text-white overflow-x-hidden">
     <!-- HERO -->
-    <section
-      class="min-h-screen flex items-center justify-center text-center px-6"
-    >
-      <div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-4">
-          Rasya <span class="gradient-text">Falqi Gani</span>
-        </h1>
-        <p class="text-gray-400 text-lg mb-6">
-          Full Stack Developer • Visual Artist • Art Director
-        </p>
-        <p class="max-w-2xl mx-auto text-gray-300">
-          Engineering digital products where code, visual, and sound meet.
-        </p>
+    <section class="relative min-h-screen flex items-center">
+      <div class="glow -top-20 -left-20"></div>
+      <div class="glow bottom-0 right-0"></div>
+
+      <div
+        class="section-container grid md:grid-cols-2 gap-12 items-center relative z-10"
+      >
+        <div>
+          <h1 class="text-5xl md:text-7xl font-bold mb-4">
+            Rasya <span class="gradient-text">Falqi Gani</span>
+          </h1>
+          <p class="text-gray-400 text-lg mb-6">
+            Full Stack Developer • Visual Artist • Art Director
+          </p>
+          <p class="text-gray-300 max-w-xl">
+            Engineering digital products where code, visual, and sound meet.
+          </p>
+        </div>
+
+        <div class="relative flex justify-center">
+          <div
+            class="absolute -inset-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 blur-2xl opacity-50"
+          ></div>
+          <img
+            src="IMG_20260105_162733.jpg"
+            alt="Rasya Falqi Gani"
+            class="relative w-72 h-72 object-cover rounded-full border border-white/20"
+          />
+        </div>
       </div>
     </section>
 
     <!-- PROFILE -->
-    <section class="py-20 px-6 max-w-5xl mx-auto">
-      <h2 class="text-4xl font-bold mb-6 gradient-text">Profile</h2>
-      <p class="text-gray-300 leading-relaxed">
-        I’m a Full Stack Developer with a strong background in visual art,
-        creative direction, and digital storytelling. I build systems that don’t
-        only work — they feel right.
-      </p>
+    <section class="py-20">
+      <div class="section-container">
+        <h2 class="text-4xl font-bold mb-6 gradient-text">Profile</h2>
+        <p class="text-gray-300 leading-relaxed text-lg">
+          I am a Full Stack Developer with strong interest in visual art,
+          photography, and creative direction. I combine technical execution
+          with artistic vision to create meaningful digital experiences.
+        </p>
+      </div>
     </section>
 
     <!-- CREATIVE DIRECTION -->
-    <section class="py-20 px-6">
-      <div class="max-w-6xl mx-auto">
+    <section class="py-20">
+      <div class="section-container">
         <h2 class="text-4xl font-bold mb-12 gradient-text">
           Creative Direction
         </h2>
@@ -69,33 +194,27 @@
               Visual Artist
             </h3>
             <p class="text-gray-300">
-              Visual storytelling through composition, mood, and digital
-              aesthetics.
+              Visual storytelling through mood and composition.
             </p>
           </div>
-
           <div class="card p-6 rounded-2xl">
             <h3 class="text-xl font-bold text-indigo-400 mb-2">Art Director</h3>
             <p class="text-gray-300">
-              Managing visual concepts, branding direction, and creative
-              consistency.
+              Managing creative concepts and visual consistency.
             </p>
           </div>
-
           <div class="card p-6 rounded-2xl">
             <h3 class="text-xl font-bold text-indigo-400 mb-2">Photographer</h3>
             <p class="text-gray-300">
-              Urban & portrait photography focused on emotion and narrative.
+              Urban & portrait photography with emotional focus.
             </p>
           </div>
-
           <div class="card p-6 rounded-2xl">
             <h3 class="text-xl font-bold text-indigo-400 mb-2">
-              Music & Culture
+              Music & Visual Culture
             </h3>
             <p class="text-gray-300">
-              Passionate about music identity, band visuals, and sound
-              aesthetics.
+              Exploring identity between sound and visuals.
             </p>
           </div>
         </div>
@@ -103,105 +222,147 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="py-20 px-6 max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8 gradient-text">Skills</h2>
+    <section class="py-20">
+      <div class="section-container">
+        <h2 class="text-4xl font-bold mb-8 gradient-text">Skills</h2>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="card p-6 rounded-2xl">
-          <h3 class="font-bold mb-4 text-indigo-400">Tech Stack</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Laravel</span>
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Vite</span>
-            <span class="skill-tag">Next.js</span>
-            <span class="skill-tag">NestJS</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">MySQL</span>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card p-6 rounded-2xl">
+            <h3 class="font-bold mb-4 text-indigo-400">Tech Stack</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Vite</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">Tailwind</span>
+            </div>
           </div>
-        </div>
 
-        <div class="card p-6 rounded-2xl">
-          <h3 class="font-bold mb-4 text-indigo-400">Creative Stack</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Art Direction</span>
-            <span class="skill-tag">Visual Storytelling</span>
-            <span class="skill-tag">Brand Identity</span>
-            <span class="skill-tag">Photography</span>
-            <span class="skill-tag">Color Grading</span>
+          <div class="card p-6 rounded-2xl">
+            <h3 class="font-bold mb-4 text-indigo-400">Creative Stack</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Art Direction</span>
+              <span class="skill-tag">Photography</span>
+              <span class="skill-tag">Brand Identity</span>
+              <span class="skill-tag">Visual Storytelling</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE (INI YANG TADI ILANG 😡) -->
-    <section class="py-20 px-6 max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8 gradient-text">Experience</h2>
+    <!-- EXPERIENCE -->
+    <section class="py-20">
+      <div class="section-container">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">Experience</h2>
 
-      <div class="card p-6 rounded-2xl mb-6">
-        <h3 class="text-xl font-bold">BILLE SOUTHSIDE</h3>
-        <p class="text-sm text-gray-400 mb-2">
-          Full Stack Developer & Visual Direction
-        </p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>Designed visual identity and digital experience</li>
-          <li>Built reservation & admin system using Laravel</li>
-          <li>Defined UI mood, typography, and interaction</li>
-        </ul>
-      </div>
+        <div class="space-y-6">
+          <div class="card p-6 rounded-2xl experience-card">
+            <h3 class="text-xl font-bold mb-1">PT. Bangun Kreatif Abadi</h3>
+            <p class="text-sm text-indigo-400 mb-3">Full Stack Developer</p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>
+                Developed and maintained web applications using modern
+                frameworks
+              </li>
+              <li>Implemented RESTful APIs and database architecture</li>
+              <li>
+                Collaborated with cross-functional teams on product development
+              </li>
+              <li>Optimized application performance and user experience</li>
+            </ul>
+          </div>
 
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-xl font-bold">TransJakarta</h3>
-        <p class="text-sm text-gray-400 mb-2">IT Support / Technician</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>Handled device maintenance and system support</li>
-          <li>Ensured operational reliability</li>
-        </ul>
+          <div class="card p-6 rounded-2xl experience-card">
+            <h3 class="text-xl font-bold mb-1">BILLE SOUTHSIDE</h3>
+            <p class="text-sm text-indigo-400 mb-3">
+              Full Stack Developer & Visual Direction
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>Designed UI/UX and visual identity</li>
+              <li>Built reservation & admin systems</li>
+              <li>Handled pricing logic and promotions</li>
+              <li>Maintained system performance</li>
+            </ul>
+          </div>
+
+          <div class="card p-6 rounded-2xl experience-card">
+            <h3 class="text-xl font-bold mb-1">TransJakarta</h3>
+            <p class="text-sm text-indigo-400 mb-3">IT Support / Technician</p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>Device maintenance & troubleshooting</li>
+              <li>Operational system support</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- WORKS -->
-    <section class="py-20 px-6 max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8 gradient-text">Works</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div
-          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
-        >
-          Digital Product
+    <section class="py-20">
+      <div class="section-container">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">Works</h2>
+
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold mb-6 text-indigo-300">
+            Programming & IT
+          </h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="work-box">Project 1</div>
+            <div class="work-box">Project 2</div>
+            <div class="work-box">Project 3</div>
+          </div>
         </div>
-        <div
-          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
-        >
-          Photography
+
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold mb-6 text-indigo-300">Photography</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="work-box">Photo 1</div>
+            <div class="work-box">Photo 2</div>
+            <div class="work-box">Photo 3</div>
+          </div>
         </div>
-        <div
-          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
-        >
-          Music Art Direction
+
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-indigo-300">
+            Visual & Art Direction
+          </h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="work-box">Visual 1</div>
+            <div class="work-box">Visual 2</div>
+            <div class="work-box">Visual 3</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SOCIAL MEDIA (AMAN BOS) -->
+    <!-- SOCIAL -->
     <section class="py-20 text-center">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Connect</h2>
-      <div class="flex justify-center gap-6 text-gray-400">
-        <a href="#" class="hover:text-white">Instagram</a>
-        <a href="#" class="hover:text-white">GitHub</a>
-        <a href="#" class="hover:text-white">LinkedIn</a>
+      <div class="flex justify-center gap-8 text-gray-400 text-lg">
+        <a
+          href="https://www.instagram.com/rasya.falqi/"
+          class="hover:text-indigo-400 transition-colors"
+          >Instagram</a
+        >
+        <a
+          href="https://github.com/acarpl"
+          class="hover:text-indigo-400 transition-colors"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/rasya-gani/"
+          class="hover:text-indigo-400 transition-colors"
+          >LinkedIn</a
+        >
       </div>
     </section>
 
-    <!-- MANIFESTO -->
-    <section class="py-20 px-6 text-center">
-      <p class="max-w-3xl mx-auto text-gray-400 text-lg">
-        Great digital products are not only built with clean code, but with
-        strong identity, emotion, and intention.
-      </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-6 text-center text-gray-500 text-sm">
+    <footer
+      class="py-8 text-center text-gray-500 text-sm border-t border-white/5"
+    >
       © 2026 Rasya Falqi Gani
     </footer>
   </body>
