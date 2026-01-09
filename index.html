@@ -1,239 +1,208 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rasya Falqi Gani — Creative Technologist</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rasya Falqi Gani – Creative Technologist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: #0b0b0f;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .skill-tag {
+        padding: 0.4rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+  <body class="text-white font-sans">
+    <!-- HERO -->
+    <section
+      class="min-h-screen flex items-center justify-center text-center px-6"
+    >
+      <div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">
+          Rasya <span class="gradient-text">Falqi Gani</span>
+        </h1>
+        <p class="text-gray-400 text-lg mb-6">
+          Full Stack Developer • Visual Artist • Art Director
+        </p>
+        <p class="max-w-2xl mx-auto text-gray-300">
+          Engineering digital products where code, visual, and sound meet.
+        </p>
+      </div>
+    </section>
 
-*{font-family:'Inter',sans-serif}
-body{background:#000;color:#fff;overflow-x:hidden}
+    <!-- PROFILE -->
+    <section class="py-20 px-6 max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold mb-6 gradient-text">Profile</h2>
+      <p class="text-gray-300 leading-relaxed">
+        I’m a Full Stack Developer with a strong background in visual art,
+        creative direction, and digital storytelling. I build systems that don’t
+        only work — they feel right.
+      </p>
+    </section>
 
-.cursor-glow{
-position:fixed;width:600px;height:600px;border-radius:50%;
-pointer-events:none;opacity:.15;
-background:radial-gradient(circle,rgba(99,102,241,.4),transparent 70%);
-z-index:50}
+    <!-- CREATIVE DIRECTION -->
+    <section class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 gradient-text">
+          Creative Direction
+        </h2>
 
-.bg-grid{
-position:fixed;inset:0;
-background-image:
-linear-gradient(rgba(99,102,241,.1) 1px,transparent 1px),
-linear-gradient(90deg,rgba(99,102,241,.1) 1px,transparent 1px);
-background-size:50px 50px;opacity:.2;z-index:0}
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-indigo-400 mb-2">
+              Visual Artist
+            </h3>
+            <p class="text-gray-300">
+              Visual storytelling through composition, mood, and digital
+              aesthetics.
+            </p>
+          </div>
 
-.gradient-text{
-background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
-background-size:200% 200%;animation:grad 4s ease infinite}
+          <div class="card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-indigo-400 mb-2">Art Director</h3>
+            <p class="text-gray-300">
+              Managing visual concepts, branding direction, and creative
+              consistency.
+            </p>
+          </div>
 
-@keyframes grad{
-0%,100%{background-position:0% 50%}
-50%{background-position:100% 50%}}
+          <div class="card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-indigo-400 mb-2">Photographer</h3>
+            <p class="text-gray-300">
+              Urban & portrait photography focused on emotion and narrative.
+            </p>
+          </div>
 
-.card{
-background:linear-gradient(135deg,rgba(17,24,39,.9),rgba(31,41,55,.9));
-border:1px solid rgba(99,102,241,.3);
-backdrop-filter:blur(10px);
-transition:.3s}
+          <div class="card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-indigo-400 mb-2">
+              Music & Culture
+            </h3>
+            <p class="text-gray-300">
+              Passionate about music identity, band visuals, and sound
+              aesthetics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.card:hover{
-transform:translateY(-6px);
-border-color:rgba(99,102,241,.6)}
+    <!-- SKILLS -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 gradient-text">Skills</h2>
 
-.skill{
-padding:.5rem 1rem;border-radius:999px;
-background:rgba(99,102,241,.1);
-border:1px solid rgba(99,102,241,.3);
-font-size:.85rem}
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6 rounded-2xl">
+          <h3 class="font-bold mb-4 text-indigo-400">Tech Stack</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Vite</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">NestJS</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
 
-.fade-in{opacity:0;transform:translateY(40px);transition:.8s}
-.fade-in.visible{opacity:1;transform:none}
-</style>
-</head>
+        <div class="card p-6 rounded-2xl">
+          <h3 class="font-bold mb-4 text-indigo-400">Creative Stack</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Art Direction</span>
+            <span class="skill-tag">Visual Storytelling</span>
+            <span class="skill-tag">Brand Identity</span>
+            <span class="skill-tag">Photography</span>
+            <span class="skill-tag">Color Grading</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<body>
+    <!-- EXPERIENCE (INI YANG TADI ILANG 😡) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 gradient-text">Experience</h2>
 
-<div class="cursor-glow" id="cursorGlow"></div>
-<div class="bg-grid"></div>
+      <div class="card p-6 rounded-2xl mb-6">
+        <h3 class="text-xl font-bold">BILLE SOUTHSIDE</h3>
+        <p class="text-sm text-gray-400 mb-2">
+          Full Stack Developer & Visual Direction
+        </p>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Designed visual identity and digital experience</li>
+          <li>Built reservation & admin system using Laravel</li>
+          <li>Defined UI mood, typography, and interaction</li>
+        </ul>
+      </div>
 
-<!-- HERO -->
-<section class="min-h-screen flex items-center justify-center px-6 relative">
-<div class="max-w-5xl text-center fade-in relative z-10">
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-xl font-bold">TransJakarta</h3>
+        <p class="text-sm text-gray-400 mb-2">IT Support / Technician</p>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Handled device maintenance and system support</li>
+          <li>Ensured operational reliability</li>
+        </ul>
+      </div>
+    </section>
 
-<img src="https://github.com/acarpl/rasyaporto/blob/main/IMG_20260105_162733.jpg?raw=true"
-class="mx-auto w-44 h-44 rounded-full border-4 border-indigo-500 shadow-lg mb-6 object-cover">
+    <!-- WORKS -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 gradient-text">Works</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div
+          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
+        >
+          Digital Product
+        </div>
+        <div
+          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
+        >
+          Photography
+        </div>
+        <div
+          class="card rounded-2xl h-48 flex items-center justify-center text-gray-400"
+        >
+          Music Art Direction
+        </div>
+      </div>
+    </section>
 
-<div class="text-indigo-400 tracking-widest text-sm mb-3">
-FULL STACK DEVELOPER • VISUAL ARTIST • ART DIRECTOR
-</div>
+    <!-- SOCIAL MEDIA (AMAN BOS) -->
+    <section class="py-20 text-center">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Connect</h2>
+      <div class="flex justify-center gap-6 text-gray-400">
+        <a href="#" class="hover:text-white">Instagram</a>
+        <a href="#" class="hover:text-white">GitHub</a>
+        <a href="#" class="hover:text-white">LinkedIn</a>
+      </div>
+    </section>
 
-<h1 class="text-6xl md:text-8xl font-extrabold gradient-text mb-6">
-Rasya Falqi Gani
-</h1>
+    <!-- MANIFESTO -->
+    <section class="py-20 px-6 text-center">
+      <p class="max-w-3xl mx-auto text-gray-400 text-lg">
+        Great digital products are not only built with clean code, but with
+        strong identity, emotion, and intention.
+      </p>
+    </section>
 
-<p class="text-gray-400 text-xl max-w-2xl mx-auto">
-Engineering digital products where code, visual, and sound meet.
-</p>
-
-<div class="mt-10 flex gap-4 justify-center flex-wrap">
-<a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 font-semibold shadow-lg">
-Contact Me
-</a>
-<a href="#works" class="px-8 py-4 rounded-full border border-indigo-500">
-View Works
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- PROFILE -->
-<section class="py-24 px-6 fade-in">
-<div class="max-w-5xl mx-auto">
-<h2 class="text-4xl font-bold gradient-text mb-6">Profile</h2>
-<div class="card p-8 rounded-2xl text-gray-300 leading-relaxed">
-Creative Technologist dengan latar belakang Full Stack Development,
-Visual Art, dan Art Direction. Fokus membangun produk digital
-yang kuat secara sistem, estetika, dan identitas visual.
-</div>
-</div>
-</section>
-
-<!-- CREATIVE -->
-<section class="py-24 px-6 fade-in">
-<div class="max-w-6xl mx-auto">
-<h2 class="text-4xl font-bold gradient-text mb-12">Creative Direction</h2>
-
-<div class="grid md:grid-cols-2 gap-6">
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-2">Visual Artist</h3>
-<p class="text-gray-300">Digital & experimental visual storytelling.</p>
-</div>
-
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-2">Art Director</h3>
-<p class="text-gray-300">Mood, branding system, and visual consistency.</p>
-</div>
-
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-2">Photographer</h3>
-<p class="text-gray-300">Urban & portrait photography with strong narrative.</p>
-</div>
-
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-2">Music Enthusiast</h3>
-<p class="text-gray-300">Music culture & band visual identity.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- SKILLS -->
-<section class="py-24 px-6 fade-in">
-<div class="max-w-6xl mx-auto">
-<h2 class="text-4xl font-bold gradient-text mb-12">Skills</h2>
-
-<div class="grid md:grid-cols-2 gap-6">
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-3">Tech Stack</h3>
-<div class="flex flex-wrap gap-2">
-<span class="skill">Laravel</span>
-<span class="skill">React</span>
-<span class="skill">Next.js</span>
-<span class="skill">NestJS</span>
-<span class="skill">Tailwind</span>
-<span class="skill">MySQL</span>
-<span class="skill">Midtrans</span>
-</div>
-</div>
-
-<div class="card p-6 rounded-2xl">
-<h3 class="text-indigo-400 font-bold mb-3">Creative Stack</h3>
-<div class="flex flex-wrap gap-2">
-<span class="skill">Art Direction</span>
-<span class="skill">Photography</span>
-<span class="skill">Visual Storytelling</span>
-<span class="skill">Brand Identity</span>
-<span class="skill">Music Visual Concept</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- WORKS -->
-<section id="works" class="py-24 px-6 fade-in">
-<div class="max-w-6xl mx-auto">
-<h2 class="text-4xl font-bold gradient-text mb-12">Selected Works</h2>
-
-<div class="grid md:grid-cols-3 gap-6">
-<div class="card overflow-hidden rounded-2xl">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" class="h-56 w-full object-cover">
-<div class="p-4"><span class="text-xs text-indigo-400">Digital Product</span><h3 class="font-bold">Web Application</h3></div>
-</div>
-
-<div class="card overflow-hidden rounded-2xl">
-<img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" class="h-56 w-full object-cover">
-<div class="p-4"><span class="text-xs text-purple-400">Photography</span><h3 class="font-bold">Urban Portrait</h3></div>
-</div>
-
-<div class="card overflow-hidden rounded-2xl">
-<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800" class="h-56 w-full object-cover">
-<div class="p-4"><span class="text-xs text-pink-400">Music Visual</span><h3 class="font-bold">Band Concept</h3></div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 px-6 fade-in text-center">
-<h2 class="text-4xl font-bold gradient-text mb-6">Get In Touch</h2>
-<p class="text-gray-400">Bekasi Barat, Indonesia</p>
-<p class="text-gray-300">rasyafalqi53@gmail.com</p>
-</section>
-
-<!-- SOCIAL MEDIA -->
-<section class="py-20 px-6 fade-in">
-<div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-
-<a href="https://www.instagram.com/rasya.falqi/" target="_blank" class="card p-6 rounded-2xl flex items-center gap-4">
-<span class="text-pink-400 font-bold">Instagram</span>
-<span class="text-gray-300">@rasya.falqi</span>
-</a>
-
-<a href="https://github.com/acarpl" target="_blank" class="card p-6 rounded-2xl flex items-center gap-4">
-<span class="text-gray-300 font-bold">GitHub</span>
-<span class="text-gray-400">acarpl</span>
-</a>
-
-<a href="https://linkedin.com/in/rasya-gani" target="_blank" class="card p-6 rounded-2xl flex items-center gap-4">
-<span class="text-blue-400 font-bold">LinkedIn</span>
-<span class="text-gray-300">Rasya Gani</span>
-</a>
-
-</div>
-</section>
-
-<footer class="py-8 text-center text-gray-500 border-t border-indigo-500/20">
-© 2026 Rasya Falqi Gani
-</footer>
-
-<script>
-const glow=document.getElementById('cursorGlow');
-document.addEventListener('mousemove',e=>{
-glow.style.left=(e.clientX-300)+'px';
-glow.style.top=(e.clientY-300)+'px';
-});
-
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.1});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-</script>
-
-</body>
+    <!-- FOOTER -->
+    <footer class="py-6 text-center text-gray-500 text-sm">
+      © 2026 Rasya Falqi Gani
+    </footer>
+  </body>
 </html>
