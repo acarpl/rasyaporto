@@ -3,35 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rasya Falqi Gani - Portfolio</title>
+    <title>Rasya Falqi Gani | Creative Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .abstract-bg {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
         }
         
         .skill-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 10px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            padding-bottom: 30px;
+            padding-left: 40px;
+            padding-bottom: 40px;
         }
         
         .timeline-item:before {
@@ -39,69 +72,120 @@
             position: absolute;
             left: 0;
             top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background-color: #764ba2;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 3px solid #0f172a;
+            z-index: 2;
         }
         
         .timeline-item:after {
             content: '';
             position: absolute;
-            left: 5px;
-            top: 15px;
+            left: 7px;
+            top: 20px;
             width: 2px;
             height: calc(100% - 5px);
-            background-color: #e5e7eb;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
         }
         
         .timeline-item:last-child:after {
             display: none;
         }
         
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
         .section-title {
             position: relative;
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .section-title:after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -8px;
-            width: 50px;
-            height: 3px;
-            background-color: #764ba2;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-chip {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-chip:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-950 text-gray-100">
+    <!-- Abstract Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-3/4 left-1/3 w-48 h-48 bg-pink-500/5 rounded-full blur-3xl"></div>
+        <div class="grid-pattern absolute inset-0"></div>
+    </div>
+
     <!-- Header & Navigation -->
-    <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+    <header class="glass-effect sticky top-0 z-50 shadow-xl">
         <div class="container mx-auto px-6 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                        <span class="text-purple-700 font-bold text-lg">RF</span>
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="font-bold text-white">RF</span>
                     </div>
-                    <h1 class="text-2xl font-bold">Rasya Falqi Ganis</h1>
+                    <div>
+                        <h1 class="text-2xl font-bold">Rasya Falqi Gani</h1>
+                        <p class="text-sm text-gray-400">Creative Developer & Designer</p>
+                    </div>
                 </div>
-                <nav class="flex space-x-6">
-                    <a href="#about" class="hover:text-purple-200 transition duration-300">Tentang</a>
-                    <a href="#skills" class="hover:text-purple-200 transition duration-300">Keahlian</a>
-                    <a href="#experience" class="hover:text-purple-200 transition duration-300">Pengalaman</a>
-                    <a href="#contact" class="hover:text-purple-200 transition duration-300">Kontak</a>
-                    <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="bg-white text-purple-700 px-4 py-2 rounded-lg font-medium hover:bg-purple-100 transition duration-300">
+                <nav class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <a href="#about" class="text-gray-300 hover:text-white hover:gradient-text transition duration-300">Tentang</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white hover:gradient-text transition duration-300">Keahlian</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white hover:gradient-text transition duration-300">Pengalaman</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white hover:gradient-text transition duration-300">Kontak</a>
+                    <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="gradient-bg text-white px-5 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 transition duration-300">
                         Portfolio
                     </a>
                 </nav>
@@ -110,33 +194,52 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-2/3 mb-10 md:mb-0">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">IT and Creative</h2>
-                    <p class="text-xl mb-6 text-purple-100">
-                        Siswa Rekayasa Perangkat Lunak yang aktif membangun berbagai proyek web dan sistem digital menggunakan teknologi modern.
-                    </p>
-                    <p class="mb-8 text-purple-100">
-                        Berpengalaman dalam pengembangan aplikasi full stack dengan Laravel serta JavaScript framework seperti React (Vite), Next.js, dan NestJS. Terbiasa mengerjakan proyek nyata mulai dari perancangan UI, pengelolaan database, hingga integrasi payment gateway.
+    <section class="relative py-20 md:py-28 overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-2/3 mb-12 lg:mb-0">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-6">
+                        <div class="w-2 h-2 bg-green-500 rounded-full mr-2 pulse"></div>
+                        <span class="text-sm">Tersedia untuk proyek baru</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="block">Menciptakan</span>
+                        <span class="gradient-text">Digital Experience</span>
+                        <span class="block">yang Menginspirasi</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-3xl">
+                        Siswa Rekayasa Perangkat Lunak yang fokus pada pengembangan produk digital modern dengan pendekatan kreatif dan teknis. Mengkombinasikan teknologi, desain, dan inovasi untuk menciptakan solusi yang scalable dan efisien.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="bg-white text-purple-700 px-6 py-3 rounded-lg font-medium hover:bg-purple-100 transition duration-300">
-                            Hubungi Saya
+                        <a href="#contact" class="gradient-bg text-white px-8 py-3 rounded-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition duration-300 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Mulai Proyek
                         </a>
-                        <a href="#experience" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-purple-700 transition duration-300">
-                            Lihat Pengalaman
+                        <a href="#experience" class="glass-effect px-8 py-3 rounded-lg font-medium hover:bg-slate-800/50 transition duration-300 flex items-center">
+                            <i class="fas fa-briefcase mr-2"></i> Lihat Pengalaman
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/3 flex justify-center">
+                <div class="lg:w-1/3 flex justify-center">
                     <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full flex items-center justify-center shadow-2xl">
-                            <i class="fas fa-laptop-code text-white text-8xl"></i>
+                        <div class="w-72 h-72 md:w-80 md:h-80 abstract-bg rounded-3xl border border-slate-700/50 flex items-center justify-center shadow-2xl floating">
+                            <div class="text-center p-8">
+                                <div class="text-6xl mb-4 gradient-text">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Full Stack</h3>
+                                <p class="text-gray-400">Developer</p>
+                            </div>
                         </div>
-                        <div class="absolute -bottom-2 -right-2 bg-white text-purple-700 px-4 py-2 rounded-lg shadow-lg">
-                            <p class="font-bold">Full Stack Developer</p>
+                        <div class="absolute -bottom-4 -right-4 glass-effect p-4 rounded-xl shadow-lg">
+                            <p class="font-bold gradient-text">React • Laravel • Next.js</p>
+                        </div>
+                        <div class="absolute -top-4 -left-4 glass-effect p-3 rounded-xl shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center mr-2">
+                                    <i class="fas fa-palette text-white text-sm"></i>
+                                </div>
+                                <span class="font-medium">UI/UX Design</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,44 +248,63 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="relative py-20">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold">Tentang Saya</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h2 class="section-title text-4xl font-bold">Tentang Saya</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <p class="mb-4 text-lg">
-                        Saya adalah siswa SMKN 1 Kota Bekasi jurusan Rekayasa Perangkat Lunak dengan minat besar pada teknologi, desain, dan pengembangan produk digital yang rapi, scalable, dan efisien.
-                    </p>
-                    <p class="mb-6">
-                        Saya memiliki pengalaman mengembangkan aplikasi full stack dengan teknologi modern seperti Laravel, React (Vite), Next.js, dan NestJS. Saya terbiasa mengerjakan proyek nyata mulai dari perancangan UI, pengelolaan database, hingga integrasi payment gateway.
-                    </p>
-                    <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-                        <h3 class="font-bold text-lg mb-2">Filosofi Kerja</h3>
-                        <p class="italic">"Membangun solusi digital yang tidak hanya berfungsi dengan baik, tetapi juga memberikan pengalaman pengguna yang optimal dengan desain yang menarik dan kode yang terstruktur."</p>
+                    <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">Creative Technologist</h3>
+                        <p class="mb-6 text-lg">
+                            Saya adalah siswa SMKN 1 Kota Bekasi jurusan Rekayasa Perangkat Lunak dengan passion di bidang teknologi kreatif. Saya percaya bahwa solusi digital terbaik lahir dari kolaborasi antara estetika desain dan teknik pengembangan yang solid.
+                        </p>
+                        <p class="text-gray-300">
+                            Dengan pengalaman mengembangkan aplikasi full stack menggunakan teknologi modern seperti Laravel, React (Vite), Next.js, dan NestJS, saya mampu mengerjakan proyek lengkap mulai dari konsep, desain UI/UX, pengembangan frontend & backend, hingga deployment.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="tech-chip flex items-center">
+                            <i class="fab fa-laravel text-red-500 mr-2"></i>
+                            <span>Laravel</span>
+                        </div>
+                        <div class="tech-chip flex items-center">
+                            <i class="fab fa-react text-blue-400 mr-2"></i>
+                            <span>React (Vite)</span>
+                        </div>
+                        <div class="tech-chip flex items-center">
+                            <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                            <span>Next.js</span>
+                        </div>
+                        <div class="tech-chip flex items-center">
+                            <i class="fab fa-node-js text-green-500 mr-2"></i>
+                            <span>NestJS</span>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Pendidikan</h3>
-                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">SMKN 1 Kota Bekasi</h4>
-                                <p class="text-purple-700">Rekayasa Perangkat Lunak</p>
+                                <h4 class="font-bold text-xl">SMKN 1 Kota Bekasi</h4>
+                                <p class="gradient-text font-medium">Rekayasa Perangkat Lunak</p>
                             </div>
                         </div>
-                        <p>Sebagai siswa jurusan Rekayasa Perangkat Lunak, saya mempelajari berbagai konsep pengembangan perangkat lunak mulai dari algoritma, struktur data, basis data, hingga pengembangan aplikasi web dan mobile.</p>
+                        <p class="mb-6">Sebagai siswa jurusan Rekayasa Perangkat Lunak, saya mendalami konsep pengembangan perangkat lunak modern, algoritma, struktur data, basis data, dan metodologi pengembangan aplikasi web & mobile.</p>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                            <span class="text-sm">Sedang menempuh pendidikan</span>
+                        </div>
                     </div>
                     
-                    <h3 class="text-xl font-bold mt-8 mb-4">Minat & Fokus</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Web Development</span>
-                        <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">UI/UX Design</span>
-                        <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full">Database Design</span>
-                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Photography</span>
-                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Digital Products</span>
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <h3 class="text-2xl font-bold mb-4">Filosofi Kreatif</h3>
+                        <p class="italic text-gray-300 border-l-4 border-purple-500 pl-4 py-2">
+                            "Setiap baris kode adalah sapuan kuas, setiap algoritma adalah ritme, dan setiap antarmuka adalah kanvas. Teknologi bukan hanya alat, tetapi media untuk mengekspresikan kreativitas dan menyelesaikan masalah dengan cara yang elegan."
+                        </p>
                     </div>
                 </div>
             </div>
@@ -190,87 +312,81 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-50">
+    <section id="skills" class="relative py-20 abstract-bg">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold">Keahlian</h2>
-            <p class="text-lg mb-10 max-w-2xl">Saya memiliki beragam keahlian dalam pengembangan perangkat lunak dan desain yang membantu saya menciptakan solusi digital yang komprehensif.</p>
+            <h2 class="section-title text-4xl font-bold">Keahlian Kreatif</h2>
+            <p class="text-xl mb-12 max-w-2xl text-gray-300">Kombinasi unik antara kemampuan teknis dan kreativitas desain untuk menciptakan pengalaman digital yang memukau.</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
                         <i class="fas fa-palette text-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">UI/UX Design</h3>
-                    <p class="text-gray-600 text-sm">Merancang antarmuka pengguna yang menarik dan mudah digunakan</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
-                        <i class="fas fa-brush text-white text-2xl"></i>
+                    <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-300 mb-4">Merancang antarmuka yang tidak hanya indah tetapi juga intuitif dan memberikan pengalaman pengguna yang optimal.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>Figma, Adobe XD, User Research</span>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Graphic Design</h3>
-                    <p class="text-gray-600 text-sm">Membuat desain visual untuk berbagai kebutuhan digital</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
                         <i class="fas fa-code text-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Front End</h3>
-                    <p class="text-gray-600 text-sm">Mengembangkan antarmuka dengan React, Next.js, Tailwind</p>
+                    <h3 class="text-2xl font-bold mb-4">Frontend Development</h3>
+                    <p class="text-gray-300 mb-4">Membangun antarmuka yang responsif dan interaktif dengan teknologi modern seperti React, Next.js, dan Tailwind CSS.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>React, Next.js, Vite, TypeScript</span>
+                    </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
                         <i class="fas fa-server text-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Back End</h3>
-                    <p class="text-gray-600 text-sm">Membangun API dan logika bisnis dengan Laravel & NestJS</p>
+                    <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
+                    <p class="text-gray-300 mb-4">Mengembangkan API yang scalable dan aman dengan arsitektur modern menggunakan Laravel dan NestJS.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>Laravel, NestJS, REST API, MySQL</span>
+                    </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
                         <i class="fas fa-database text-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Database Design</h3>
-                    <p class="text-gray-600 text-sm">Merancang dan mengelola struktur database yang optimal</p>
+                    <h3 class="text-2xl font-bold mb-4">Database Design</h3>
+                    <p class="text-gray-300 mb-4">Merancang struktur database yang optimal, efisien, dan scalable untuk mendukung aplikasi dengan performa tinggi.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>MySQL, PostgreSQL, Database Optimization</span>
+                    </div>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
-                    <div class="skill-icon gradient-bg mx-auto">
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
+                        <i class="fas fa-brush text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Graphic Design</h3>
+                    <p class="text-gray-300 mb-4">Menciptakan identitas visual yang kuat dan konsisten untuk merek dan produk digital.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>Adobe Creative Suite, Brand Identity</span>
+                    </div>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-2xl card-hover">
+                    <div class="skill-icon gradient-bg">
                         <i class="fas fa-camera text-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Photography</h3>
-                    <p class="text-gray-600 text-sm">Menangkap momen dan konten visual yang menarik</p>
-                </div>
-            </div>
-            
-            <div class="mt-12 bg-white rounded-xl shadow-md p-8 card-hover">
-                <h3 class="text-xl font-bold mb-6 text-center">Teknologi yang Digunakan</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center bg-purple-50 px-4 py-2 rounded-lg">
-                        <i class="fab fa-laravel text-red-500 text-2xl mr-2"></i>
-                        <span class="font-medium">Laravel</span>
-                    </div>
-                    <div class="flex items-center bg-blue-50 px-4 py-2 rounded-lg">
-                        <i class="fab fa-react text-blue-500 text-2xl mr-2"></i>
-                        <span class="font-medium">React (Vite)</span>
-                    </div>
-                    <div class="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
-                        <i class="fab fa-js-square text-yellow-500 text-2xl mr-2"></i>
-                        <span class="font-medium">Next.js</span>
-                    </div>
-                    <div class="flex items-center bg-red-50 px-4 py-2 rounded-lg">
-                        <i class="fab fa-node-js text-green-600 text-2xl mr-2"></i>
-                        <span class="font-medium">NestJS</span>
-                    </div>
-                    <div class="flex items-center bg-teal-50 px-4 py-2 rounded-lg">
-                        <i class="fas fa-database text-teal-500 text-2xl mr-2"></i>
-                        <span class="font-medium">MySQL</span>
-                    </div>
-                    <div class="flex items-center bg-indigo-50 px-4 py-2 rounded-lg">
-                        <i class="fab fa-html5 text-orange-500 text-2xl mr-2"></i>
-                        <span class="font-medium">HTML5/CSS3</span>
+                    <h3 class="text-2xl font-bold mb-4">Photography</h3>
+                    <p class="text-gray-300 mb-4">Menangkap momen dan menciptakan konten visual yang menarik untuk mendukung storytelling digital.</p>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>Digital Photography, Photo Editing</span>
                     </div>
                 </div>
             </div>
@@ -278,63 +394,108 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white">
+    <section id="experience" class="relative py-20">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold">Pengalaman Kerja</h2>
-            <p class="text-lg mb-10 max-w-2xl">Pengalaman profesional dalam pengembangan perangkat lunak dan dukungan IT.</p>
+            <h2 class="section-title text-4xl font-bold">Pengalaman Profesional</h2>
+            <p class="text-xl mb-12 max-w-2xl text-gray-300">Perjalanan kreatif dalam mengembangkan solusi digital yang berdampak.</p>
             
             <div class="max-w-4xl mx-auto">
                 <!-- Experience 1 -->
                 <div class="timeline-item">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <div class="flex flex-col md:flex-row justify-between mb-6">
                             <div>
-                                <h3 class="text-xl font-bold">Bille Southside | Full Stack Developer</h3>
-                                <p class="text-purple-700 font-medium">Agustus - September 2025</p>
+                                <h3 class="text-2xl font-bold mb-2">Bille Southside | Full Stack Developer</h3>
+                                <div class="flex items-center">
+                                    <span class="gradient-text font-medium">Agustus - September 2025</span>
+                                    <span class="mx-2">•</span>
+                                    <span class="text-gray-400">Proyek Kontrak</span>
+                                </div>
                             </div>
-                            <div class="mt-2 md:mt-0">
-                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Remote</span>
+                            <div class="mt-4 md:mt-0">
+                                <span class="px-4 py-1 gradient-bg rounded-full text-sm font-medium">Remote</span>
                             </div>
                         </div>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>Mengembangkan reservasi online dengan konsep Waiting List dan UI minimalis.</li>
-                            <li>Mengimplementasikan sistem manajemen billing, produk, stok, dan transaksi.</li>
+                        <p class="text-gray-300 mb-6">Mengembangkan sistem reservasi online dengan pendekatan kreatif dan UI minimalis yang fokus pada pengalaman pengguna.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengembangkan reservasi online dengan konsep Waiting List dan UI minimalis.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengimplementasikan sistem manajemen billing, produk, stok, dan transaksi.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Experience 2 -->
                 <div class="timeline-item">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <div class="flex flex-col md:flex-row justify-between mb-6">
                             <div>
-                                <h3 class="text-xl font-bold">PT. Bangun Kreatif Abadi | Full Stack Developer</h3>
-                                <p class="text-purple-700 font-medium">Proyek Pengembangan</p>
+                                <h3 class="text-2xl font-bold mb-2">PT. Bangun Kreatif Abadi | Full Stack Developer</h3>
+                                <div class="flex items-center">
+                                    <span class="gradient-text font-medium">Proyek Pengembangan</span>
+                                    <span class="mx-2">•</span>
+                                    <span class="text-gray-400">E-commerce Solution</span>
+                                </div>
                             </div>
                         </div>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>Mengembangkan toko sepatu online dengan konsep limited stock dan UI minimalis.</li>
-                            <li>Mengimplementasikan sistem manajemen produk, stok, dan transaksi.</li>
-                            <li>Mengintegrasikan payment gateway Midtrans untuk pembayaran online.</li>
-                            <li>Merancangan alur user, struktur database, dan logika bisnis.</li>
+                        <p class="text-gray-300 mb-6">Mengembangkan toko online sepatu dengan konsep limited edition dan pendekatan desain yang minimalis namun powerful.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengembangkan toko sepatu online dengan konsep limited stock dan UI minimalis.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengimplementasikan sistem manajemen produk, stok, dan transaksi.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengintegrasikan payment gateway Midtrans untuk pembayaran online.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Merancang alur user, struktur database, dan logika bisnis.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Experience 3 -->
                 <div class="timeline-item">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <div class="flex flex-col md:flex-row justify-between mb-6">
                             <div>
-                                <h3 class="text-xl font-bold">PT. Bangun Kreatif Abadi | IT Support (Tap On Bus Transjakarta)</h3>
-                                <p class="text-purple-700 font-medium">Pengalaman Lapangan</p>
+                                <h3 class="text-2xl font-bold mb-2">PT. Bangun Kreatif Abadi | IT Support (Tap On Bus Transjakarta)</h3>
+                                <div class="flex items-center">
+                                    <span class="gradient-text font-medium">Pengalaman Lapangan</span>
+                                    <span class="mx-2">•</span>
+                                    <span class="text-gray-400">Technical Operations</span>
+                                </div>
                             </div>
                         </div>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>Bertugas sebagai teknis dalam perawatan dan pengecekan perangkat operasional.</li>
-                            <li>Membantu memastikan kelancaran operasional harian melalui pemeliharaan rutin.</li>
-                            <li>Terbiasa bekerja dengan standar operasional (SOP), ketelitian, dan tanggung jawab tinggi.</li>
-                            <li>Mengasah kemampuan problem solving dan kerja lapangan.</li>
+                        <p class="text-gray-300 mb-6">Pengalaman hands-on dalam pemeliharaan sistem teknologi dan operasional lapangan dengan standar tinggi.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Bertugas sebagai teknis dalam perawatan dan pengecekan perangkat operasional.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Membantu memastikan kelancaran operasional harian melalui pemeliharaan rutin.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Terbiasa bekerja dengan standar operasional (SOP), ketelitian, dan tanggung jawab tinggi.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                <span>Mengasah kemampuan problem solving dan kerja lapangan.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -343,106 +504,127 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 gradient-bg text-white">
+    <section id="contact" class="relative py-20 abstract-bg">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold">Hubungi Saya</h2>
-            <p class="text-xl mb-10 max-w-2xl">Silakan hubungi saya untuk diskusi proyek, kolaborasi, atau sekadar berbagi ide tentang teknologi dan pengembangan produk digital.</p>
+            <h2 class="section-title text-4xl font-bold">Mari Berkolaborasi</h2>
+            <p class="text-xl mb-12 max-w-2xl text-gray-300">Saya selalu tertarik dengan proyek-proyek menarik. Mari ciptakan sesuatu yang luar biasa bersama!</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-6">Informasi Kontak</h3>
+                    <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Hubungi Saya</h3>
                         
-                        <div class="flex items-start mb-6">
-                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-white"></i>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Telepon / WhatsApp</h4>
+                                    <a href="tel:+6285161193121" class="text-gray-300 hover:text-white transition duration-300">+62 851-6119-3121</a>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Telepon</h4>
-                                <p class="text-purple-100">+62 851-6119-3121</p>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Email</h4>
+                                    <a href="mailto:rasyafalqi53@gmail.com" class="text-gray-300 hover:text-white transition duration-300">rasyafalqi53@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fab fa-linkedin-in text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">LinkedIn</h4>
+                                    <a href="https://linkedin.com/in/rasyafalqi" target="_blank" class="text-gray-300 hover:text-white transition duration-300">linkedin.com/in/rasyafalqi</a>
+                                    <p class="text-sm text-gray-400 mt-1">Terhubung untuk networking dan kolaborasi profesional</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Lokasi</h4>
+                                    <p class="text-gray-300">Bekasi Barat, Kota Bekasi, Jawa Barat, Indonesia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Portfolio</h4>
+                                    <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="text-gray-300 hover:text-white transition duration-300 underline">https://acarpl.github.io/rasyaporto/</a>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="flex items-start mb-6">
-                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <h3 class="text-2xl font-bold mb-6">Saya Tersedia Untuk</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
+                                <span>Full Stack Web Development</span>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Email</h4>
-                                <p class="text-purple-100">rasyafalqi53@gmail.com</p>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
+                                <span>UI/UX Design & Prototyping</span>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-start mb-6">
-                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
+                                <span>E-commerce Solutions</span>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Lokasi</h4>
-                                <p class="text-purple-100">Bekasi Barat, Kota Bekasi, Jawa Barat, Indonesia</p>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
+                                <span>Digital Product Consulting</span>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-globe text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Portfolio</h4>
-                                <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="text-purple-100 underline hover:text-white transition duration-300">https://acarpl.github.io/rasyaporto/</a>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
+                                <span>Technical Collaboration</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-6">Tersedia untuk</h3>
+                    <div class="glass-effect p-8 rounded-2xl h-full card-hover">
+                        <h3 class="text-2xl font-bold mb-6">Kirim Pesan</h3>
+                        <p class="text-gray-300 mb-8">Punya ide proyek menarik? Ingin berdiskusi tentang teknologi? Atau sekadar ingin terhubung? Silakan kirim pesan dan saya akan membalas secepatnya.</p>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mr-4">
-                                    <i class="fas fa-code text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Proyek Full Stack Development</h4>
-                                    <p class="text-purple-100">Web apps, sistem manajemen, e-commerce</p>
-                                </div>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2">Nama Anda</label>
+                                <input type="text" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300" placeholder="Masukkan nama">
                             </div>
                             
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                                    <i class="fas fa-palette text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">UI/UX Design</h4>
-                                    <p class="text-purple-100">Desain antarmuka pengguna yang modern</p>
-                                </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300" placeholder="email@contoh.com">
                             </div>
                             
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-4">
-                                    <i class="fas fa-cogs text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">IT Support & Maintenance</h4>
-                                    <p class="text-purple-100">Dukungan teknis dan pemeliharaan sistem</p>
-                                </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Pesan</label>
+                                <textarea rows="5" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300" placeholder="Tulis pesan Anda di sini..."></textarea>
                             </div>
                             
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center mr-4">
-                                    <i class="fas fa-lightbulb text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Konsultasi Teknologi</h4>
-                                    <p class="text-purple-100">Diskusi dan konsultasi pengembangan digital</p>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="button" class="gradient-bg text-white px-8 py-3 rounded-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition duration-300 w-full">
+                                <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
+                            </button>
+                        </form>
                         
-                        <div class="mt-8 pt-6 border-t border-white border-opacity-30">
-                            <p class="text-center">Mari bekerja sama untuk menciptakan solusi digital yang luar biasa!</p>
+                        <div class="mt-8 pt-6 border-t border-slate-700/50">
+                            <p class="text-center text-gray-400">
+                                "Kolaborasi kreatif menghasilkan solusi yang lebih baik daripada bekerja sendiri."
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -451,42 +633,48 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
+    <footer class="bg-slate-900/80 border-t border-slate-800 py-10">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                            <span class="font-bold">RF</span>
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
+                            <span class="font-bold text-white">RF</span>
                         </div>
-                        <h3 class="text-xl font-bold">Rasya Falqi Ganis</h3>
+                        <div>
+                            <h3 class="text-xl font-bold">Rasya Falqi Gani</h3>
+                            <p class="text-sm text-gray-400">Creative Developer & IT Specialist</p>
+                        </div>
                     </div>
-                    <p class="text-gray-400 mt-2">IT and Creative • Full Stack Developer</p>
+                    <p class="text-gray-400 max-w-md">Menggabungkan teknologi modern dengan kreativitas desain untuk menciptakan pengalaman digital yang memorable dan functional.</p>
                 </div>
                 
                 <div class="flex space-x-4">
-                    <a href="mailto:rasyafalqi53@gmail.com" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-700 transition duration-300">
+                    <a href="mailto:rasyafalqi53@gmail.com" class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+6285161193121" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition duration-300">
+                    <a href="tel:+6285161193121" class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300">
                         <i class="fas fa-phone"></i>
                     </a>
-                    <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                    <a href="https://linkedin.com/in/rasya-gani" target="_blank" class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://acarpl.github.io/rasyaporto/" target="_blank" class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300">
                         <i class="fas fa-globe"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="mt-8 pt-6 border-t border-gray-800 text-center text-gray-400">
-                <p>&copy; 2025 Rasya Falqi Gani</p>
-                <p class="mt-1 text-sm">Portfolio statis untuk GitHub Pages.</p>
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-gray-400">
+                <p>&copy; 2025 Rasya Falqi Gani. All creative rights reserved.</p>
+                <p class="mt-1 text-sm">Portfolio statis dengan tema creative abstract modern.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 gradient-bg text-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition duration-300 hidden">
-        <i class="fas fa-arrow-up"></i>
+    <button id="backToTop" class="fixed bottom-6 right-6 w-14 h-14 gradient-bg text-white rounded-xl shadow-2xl flex items-center justify-center hover:shadow-purple-500/30 transition duration-300 hidden z-40">
+        <i class="fas fa-arrow-up text-lg"></i>
     </button>
 
     <script>
@@ -521,6 +709,25 @@
                     });
                 }
             });
+        });
+        
+        // Form submission simulation
+        document.querySelector('form button').addEventListener('click', function() {
+            const name = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+            const message = document.querySelector('textarea').value;
+            
+            if (name && email && message) {
+                alert(`Terima kasih ${name}! Pesan Anda telah dikirim. Saya akan membalas ke ${email} segera.`);
+                document.querySelector('form').reset();
+            } else {
+                alert('Harap lengkapi semua field sebelum mengirim pesan.');
+            }
+        });
+        
+        // Add floating animation to multiple elements
+        document.querySelectorAll('.floating').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
         });
     </script>
 </body>
