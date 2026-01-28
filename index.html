@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rasya Falqi Gani | Creative Developer</title>
+    <title>Rasya Falqi Gani | Full Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -12,12 +12,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
         font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #000000;
       }
 
       h1,
@@ -27,1481 +35,1369 @@
       h5,
       h6 {
         font-family: "Space Grotesk", sans-serif;
+        font-weight: 800;
       }
 
-      .gradient-bg {
-        background: linear-gradient(
-          135deg,
-          #667eea 0%,
-          #764ba2 50%,
-          #f093fb 100%
-        );
+      /* Navbar */
+      .navbar {
+        background: #ffffff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        border-bottom: 2px solid #000000;
       }
 
-      .gradient-text {
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .abstract-bg {
-        background:
-          radial-gradient(
-            circle at 20% 80%,
-            rgba(102, 126, 234, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(240, 147, 251, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 40%,
-            rgba(118, 75, 162, 0.1) 0%,
-            transparent 50%
-          );
-      }
-
-      .card-hover {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-      }
-
-      .card-hover:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: rgba(102, 126, 234, 0.3);
-        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-      }
-
-      .skill-icon {
-        width: 60px;
-        height: 60px;
+      /* Language Switcher */
+      .lang-switcher {
         display: flex;
+        gap: 0.5rem;
         align-items: center;
-        justify-content: center;
-        border-radius: 16px;
-        margin-bottom: 15px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      .timeline-item {
-        position: relative;
-        padding-left: 40px;
-        padding-bottom: 40px;
-      }
-
-      .timeline-item:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 5px;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border: 3px solid #0f172a;
-        z-index: 2;
-      }
-
-      .timeline-item:after {
-        content: "";
-        position: absolute;
-        left: 7px;
-        top: 20px;
-        width: 2px;
-        height: calc(100% - 5px);
-        background: linear-gradient(to bottom, #667eea, #764ba2);
-      }
-
-      .timeline-item:last-child:after {
-        display: none;
-      }
-
-      .section-title {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 40px;
-      }
-
-      .section-title:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        width: 60px;
-        height: 4px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        border-radius: 2px;
-      }
-
-      .floating {
-        animation: floating 3s ease-in-out infinite;
-      }
-
-      @keyframes floating {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      .pulse {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.7;
-        }
-      }
-
-      .glass-effect {
-        background: rgba(255, 255, 255, 0.07);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .tech-chip {
-        background: rgba(102, 126, 234, 0.1);
-        border: 1px solid rgba(102, 126, 234, 0.3);
-        padding: 8px 16px;
-        border-radius: 50px;
-        font-size: 0.9rem;
+      .lang-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid #000000;
+        background: #ffffff;
+        font-weight: 700;
+        cursor: pointer;
         transition: all 0.3s ease;
       }
 
-      .tech-chip:hover {
-        background: rgba(102, 126, 234, 0.2);
-        transform: translateY(-2px);
+      .lang-btn.active {
+        background: #000000;
+        color: #ffffff;
       }
 
-      .grid-pattern {
-        background-image:
-          linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
-        background-size: 30px 30px;
+      .lang-btn:hover {
+        background: #000000;
+        color: #ffffff;
       }
 
-      /* Banner Project Styles */
-      .project-banner {
+      /* Hero Section */
+      .hero-section {
+        margin-top: 80px;
         position: relative;
-        height: 500px;
+        height: 95vh;
+        min-height: 600px;
         overflow: hidden;
-        border-radius: 24px;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-        margin-bottom: 3rem;
       }
 
-      .project-banner:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      }
-
-      .project-banner-image {
-        position: absolute;
-        inset: 0;
+      .hero-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s ease;
+        object-position: center top;
       }
 
-      .project-banner:hover .project-banner-image {
-        transform: scale(1.05);
+      /* Running Text Animation */
+      .running-text-wrapper {
+        overflow: hidden;
+        background: #000000;
+        padding: 20px 0;
+        border-top: 3px solid #ffffff;
+        border-bottom: 3px solid #ffffff;
       }
 
-      .project-banner-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to right,
-          rgba(15, 23, 42, 0.95) 0%,
-          rgba(15, 23, 42, 0.85) 40%,
-          rgba(15, 23, 42, 0.3) 70%,
-          transparent 100%
-        );
+      .running-text {
         display: flex;
-        align-items: center;
-        padding: 3rem 4rem;
-        z-index: 2;
+        white-space: nowrap;
+        animation: scroll 20s linear infinite;
       }
 
-      .project-banner-content {
-        max-width: 600px;
-        opacity: 0;
-        transform: translateX(-30px);
-        animation: slideInLeft 0.8s ease forwards;
+      .running-text span {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #ffffff;
+        padding: 0 50px;
+        text-transform: uppercase;
       }
 
-      @keyframes slideInLeft {
-        to {
-          opacity: 1;
+      @keyframes scroll {
+        0% {
           transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
         }
       }
 
-      .project-number {
-        font-size: 8rem;
-        font-weight: 800;
+      /* Section Title */
+      .section-title {
+        font-size: 4rem;
+        font-weight: 900;
+        text-transform: uppercase;
         line-height: 1;
-        background: linear-gradient(
-          135deg,
-          rgba(102, 126, 234, 0.3),
-          rgba(240, 147, 251, 0.3)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        position: absolute;
-        top: 2rem;
-        left: 4rem;
-        z-index: 1;
+        margin-bottom: 3rem;
+        color: #000000;
       }
 
-      .gradient-purple {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+      /* Project Banner */
+      .project-banner {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        margin-bottom: 4rem;
+        cursor: pointer;
+        border: 3px solid #000000;
+        transition: all 0.3s ease;
       }
 
-      .gradient-orange {
-        background: linear-gradient(135deg, #f093fb, #f5576c);
+      .project-banner:hover {
+        transform: scale(1.02);
+        box-shadow: 15px 15px 0 rgba(0, 0, 0, 1);
       }
 
-      .gradient-green {
-        background: linear-gradient(135deg, #4facfe, #00f2fe);
+      .project-banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.5s ease;
       }
 
-      .gradient-blue {
-        background: linear-gradient(135deg, #43e97b, #38f9d7);
+      .project-banner:hover .project-banner-img {
+        transform: scale(1.05);
       }
 
-      .gradient-pink {
-        background: linear-gradient(135deg, #fa709a, #fee140);
+      /* Card Style */
+      .card {
+        background: #ffffff;
+        border: 3px solid #000000;
+        padding: 2rem;
+        transition: all 0.3s ease;
       }
 
-      .gradient-teal {
-        background: linear-gradient(135deg, #30cfd0, #330867);
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
       }
 
-      .category-badge {
+      /* Button */
+      .btn-primary {
         display: inline-block;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        font-size: 0.75rem;
+        background: #000000;
+        color: #ffffff;
+        padding: 1rem 2.5rem;
+        font-family: "Space Grotesk", sans-serif;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 1rem;
+        border: 3px solid #000000;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
       }
 
-      /* Responsive */
+      .btn-primary:hover {
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
+      }
+
+      /* Tech Badge */
+      .tech-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #000000;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0.25rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: #000000;
+        color: #ffffff;
+        border-top: 3px solid #ffffff;
+      }
+
+      /* Hide/Show Language Content */
+      .lang-content {
+        display: none;
+      }
+
+      .lang-content.active {
+        display: block;
+      }
+
+      /* Mobile Responsive */
       @media (max-width: 768px) {
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .running-text span {
+          font-size: 1.5rem;
+        }
+
         .project-banner {
           height: 400px;
         }
 
-        .project-banner-overlay {
-          background: linear-gradient(
-            to top,
-            rgba(15, 23, 42, 0.98) 0%,
-            rgba(15, 23, 42, 0.9) 50%,
-            rgba(15, 23, 42, 0.6) 80%,
-            transparent 100%
-          );
-          align-items: flex-end;
-          padding: 2rem;
+        .hero-section {
+          height: 60vh;
+          min-height: 400px;
         }
 
-        .project-number {
-          font-size: 4rem;
-          top: 1rem;
-          left: 1rem;
+        .navbar .desktop-nav {
+          display: none;
         }
       }
     </style>
   </head>
-  <body class="bg-slate-950 text-gray-100">
-    <!-- Abstract Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <div
-        class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"
-      ></div>
-      <div
-        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"
-      ></div>
-      <div
-        class="absolute top-3/4 left-1/3 w-48 h-48 bg-pink-500/5 rounded-full blur-3xl"
-      ></div>
-      <div class="grid-pattern absolute inset-0"></div>
-    </div>
-
-    <!-- Header & Navigation -->
-    <header class="glass-effect sticky top-0 z-50 shadow-xl">
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
       <div class="container mx-auto px-6 py-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="flex items-center space-x-3 mb-4 md:mb-0">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-3">
             <div
-              class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center shadow-lg"
+              class="w-12 h-12 bg-black flex items-center justify-center border-2 border-black"
             >
-              <span class="w-10 h-10 rounded-full overflow-hidden"
-                ><img src="IMG_20260105_162733.jpg" alt=""
-              /></span>
+              <span class="text-white font-bold text-xl">RF</span>
             </div>
             <div>
-              <h1 class="text-2xl font-bold">Rasya Falqi Gani</h1>
-              <p class="text-sm text-gray-400">Creative Developer & Designer</p>
+              <h1 class="text-xl font-bold">RASYA FALQI GANI</h1>
+              <p class="text-sm">Full Stack Developer & Visual Artist</p>
             </div>
           </div>
-          <nav class="flex flex-wrap justify-center gap-4 md:gap-6">
-            <a
-              href="#about"
-              class="text-gray-300 hover:text-white hover:gradient-text transition duration-300"
-              >Tentang</a
-            >
-            <a
-              href="#skills"
-              class="text-gray-300 hover:text-white hover:gradient-text transition duration-300"
-              >Keahlian</a
-            >
-            <a
-              href="#experience"
-              class="text-gray-300 hover:text-white hover:gradient-text transition duration-300"
-              >Pengalaman</a
-            >
-            <a
-              href="#projects"
-              class="text-gray-300 hover:text-white hover:gradient-text transition duration-300"
-              >Karya</a
-            >
-            <a
-              href="#contact"
-              class="text-gray-300 hover:text-white hover:gradient-text transition duration-300"
-              >Kontak</a
-            >
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative py-20 md:py-28 overflow-hidden">
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center">
-          <div class="lg:w-2/3 mb-12 lg:mb-0">
-            <div
-              class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-6"
-            >
-              <div class="w-2 h-2 bg-green-500 rounded-full mr-2 pulse"></div>
-              <span class="text-sm">Tersedia untuk proyek baru</span>
-            </div>
-            <h2 class="text-5xl md:text-6xl font-bold mb-6">
-              <span class="block">Menciptakan</span>
-              <span class="gradient-text">Digital Experience</span>
-              <span class="block">yang Menginspirasi</span>
-            </h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-3xl">
-              Siswa Rekayasa Perangkat Lunak yang fokus pada pengembangan produk
-              digital modern dengan pendekatan kreatif dan teknis.
-              Mengkombinasikan teknologi, desain, dan inovasi untuk menciptakan
-              solusi yang scalable dan efisien.
-            </p>
-            <div class="flex flex-wrap gap-4">
+          <div class="flex items-center space-x-6">
+            <div class="hidden md:flex space-x-8 desktop-nav">
+              <a href="#home" class="font-bold hover:underline" data-nav="home"
+                >HOME</a
+              >
+              <a
+                href="#about"
+                class="font-bold hover:underline"
+                data-nav="about"
+                >ABOUT</a
+              >
+              <a
+                href="#skills"
+                class="font-bold hover:underline"
+                data-nav="skills"
+                >SKILLS</a
+              >
+              <a
+                href="#projects"
+                class="font-bold hover:underline"
+                data-nav="projects"
+                >PROJECTS</a
+              >
               <a
                 href="#contact"
-                class="gradient-bg text-white px-8 py-3 rounded-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition duration-300 flex items-center"
+                class="font-bold hover:underline"
+                data-nav="contact"
+                >CONTACT</a
               >
-                <i class="fas fa-paper-plane mr-2"></i> Mulai Proyek
-              </a>
-              <a
-                href="#experience"
-                class="glass-effect px-8 py-3 rounded-lg font-medium hover:bg-slate-800/50 transition duration-300 flex items-center"
-              >
-                <i class="fas fa-briefcase mr-2"></i> Lihat Pengalaman
-              </a>
             </div>
-          </div>
-          <div class="lg:w-1/3 flex justify-center">
-            <div class="relative">
-              <div
-                class="w-72 h-72 md:w-80 md:h-80 abstract-bg rounded-3xl border border-slate-700/50 flex items-center justify-center shadow-2xl floating"
-              >
-                <div class="text-center p-8">
-                  <div class="text-6xl mb-4 gradient-text">
-                    <i class="fas fa-code"></i>
-                  </div>
-                  <h3 class="text-2xl font-bold mb-2">Full Stack</h3>
-                  <p class="text-gray-400">Developer</p>
-                </div>
-              </div>
-              <div
-                class="absolute -bottom-4 -right-4 glass-effect p-4 rounded-xl shadow-lg"
-              >
-                <p class="font-bold gradient-text">React • Laravel • Next.js</p>
-              </div>
-              <div
-                class="absolute -top-4 -left-4 glass-effect p-3 rounded-xl shadow-lg"
-              >
-                <div class="flex items-center">
-                  <div
-                    class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center mr-2"
-                  >
-                    <i class="fas fa-palette text-white text-sm"></i>
-                  </div>
-                  <span class="font-medium">UI/UX Design</span>
-                </div>
-              </div>
+            <div class="lang-switcher">
+              <button class="lang-btn active" data-lang="id">ID</button>
+              <button class="lang-btn" data-lang="en">EN</button>
             </div>
           </div>
         </div>
       </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <!-- Ganti dengan foto hero banner kamu -->
+      <img src="ACAXTJ.png" alt="Rasya Falqi Gani" class="hero-image" />
+      <!-- Backup gradient jika foto belum ada -->
+      <!-- <div class="w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+        <div class="text-center text-white px-6">
+          <h1 class="text-6xl font-black mb-4">RASYA FALQI GANI</h1>
+          <p class="text-2xl font-bold">FULL STACK DEVELOPER</p>
+          <p class="text-xl mt-2">FRESH GRADUATE • READY TO WORK</p>
+        </div>
+      </div> -->
     </section>
+
+    <!-- Running Text 1 - Indonesian -->
+    <div
+      class="running-text-wrapper lang-content active"
+      data-lang-content="id"
+    >
+      <div class="running-text">
+        <span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • SIAP BEKERJA
+          • </span
+        ><span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • SIAP BEKERJA
+          • </span
+        ><span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • SIAP BEKERJA
+          •
+        </span>
+      </div>
+    </div>
+
+    <!-- Running Text 1 - English -->
+    <div class="running-text-wrapper lang-content" data-lang-content="en">
+      <div class="running-text">
+        <span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • READY TO WORK
+          •
+        </span>
+        <span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • READY TO WORK
+          • </span
+        ><span
+          >FRESH GRADUATE • FULL STACK DEVELOPER • VISUAL ARTIST • READY TO WORK
+          •
+        </span>
+      </div>
+    </div>
 
     <!-- About Section -->
-    <section id="about" class="relative py-20">
+    <section id="about" class="py-20 bg-white">
       <div class="container mx-auto px-6">
-        <h2 class="section-title text-4xl font-bold">Tentang Saya</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
-              <h3 class="text-2xl font-bold mb-4 gradient-text">
-                Creative Technologist
+        <!-- Indonesian Version -->
+        <div class="lang-content active" data-lang-content="id">
+          <h2 class="section-title text-center">TENTANG SAYA</h2>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="card">
+              <h3 class="text-3xl font-bold mb-4">
+                FRESH GRADUATE PROFESIONAL
               </h3>
-              <p class="mb-6 text-lg">
-                Saya adalah siswa SMKN 1 Kota Bekasi jurusan Rekayasa Perangkat
-                Lunak dengan passion di bidang teknologi kreatif. Saya percaya
-                bahwa solusi digital terbaik lahir dari kolaborasi antara
-                estetika desain dan teknik pengembangan yang solid.
+              <p class="text-lg leading-relaxed mb-4">
+                Lulusan baru jurusan Rekayasa Perangkat Lunak dari SMKN 1 Kota
+                Bekasi dengan passion kuat di bidang teknologi dan pengembangan
+                web.
               </p>
-              <p class="text-gray-300">
-                Dengan pengalaman mengembangkan aplikasi full stack menggunakan
-                teknologi modern seperti Laravel, React (Vite), Next.js, dan
-                NestJS, saya mampu mengerjakan proyek lengkap mulai dari konsep,
-                desain UI/UX, pengembangan frontend & backend, hingga
-                deployment.
+              <p class="text-lg leading-relaxed mb-4">
+                Memiliki pengalaman praktis dalam pengembangan aplikasi full
+                stack melalui proyek-proyek nyata dan magang profesional di
+                perusahaan teknologi.
               </p>
-            </div>
-
-            <div class="flex flex-wrap gap-4">
-              <div class="tech-chip flex items-center">
-                <i class="fab fa-laravel text-red-500 mr-2"></i>
-                <span>Laravel</span>
-              </div>
-              <div class="tech-chip flex items-center">
-                <i class="fab fa-react text-blue-400 mr-2"></i>
-                <span>React (Vite)</span>
-              </div>
-              <div class="tech-chip flex items-center">
-                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
-                <span>Next.js</span>
-              </div>
-              <div class="tech-chip flex items-center">
-                <i class="fab fa-node-js text-green-500 mr-2"></i>
-                <span>NestJS</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
-              <div class="flex items-center mb-6">
-                <div
-                  class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-graduation-cap text-white text-2xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-xl">SMKN 1 Kota Bekasi</h4>
-                  <p class="gradient-text font-medium">
-                    Rekayasa Perangkat Lunak
-                  </p>
-                </div>
-              </div>
-              <p class="mb-6">
-                Sebagai siswa jurusan Rekayasa Perangkat Lunak, saya mendalami
-                konsep pengembangan perangkat lunak modern, algoritma, struktur
-                data, basis data, dan metodologi pengembangan aplikasi web &
-                mobile.
-              </p>
-              <div class="flex items-center">
-                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                <span class="text-sm">Sedang menempuh pendidikan</span>
-              </div>
-            </div>
-
-            <div class="glass-effect p-8 rounded-2xl card-hover">
-              <h3 class="text-2xl font-bold mb-4">Filosofi Kreatif</h3>
-              <p
-                class="italic text-gray-300 border-l-4 border-purple-500 pl-4 py-2"
-              >
-                "Setiap baris kode adalah sapuan kuas, setiap algoritma adalah
-                ritme, dan setiap antarmuka adalah kanvas. Teknologi bukan hanya
-                alat, tetapi media untuk mengekspresikan kreativitas dan
-                menyelesaikan masalah dengan cara yang elegan."
+              <p class="text-lg leading-relaxed">
+                Siap berkontribusi dalam tim untuk menciptakan solusi digital
+                yang berdampak dengan teknologi modern dan best practices.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="relative py-20 abstract-bg">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title text-4xl font-bold">Keahlian Kreatif</h2>
-        <p class="text-xl mb-12 max-w-2xl text-gray-300">
-          Kombinasi unik antara kemampuan teknis dan kreativitas desain untuk
-          menciptakan pengalaman digital yang memukau.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-palette text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
-            <p class="text-gray-300 mb-4">
-              Merancang antarmuka yang tidak hanya indah tetapi juga intuitif
-              dan memberikan pengalaman pengguna yang optimal.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Figma, Adobe XD, User Research</span>
-            </div>
-          </div>
-
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-code text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Frontend Development</h3>
-            <p class="text-gray-300 mb-4">
-              Membangun antarmuka yang responsif dan interaktif dengan teknologi
-              modern seperti React, Next.js, dan Tailwind CSS.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>React, Next.js, Vite, TypeScript</span>
-            </div>
-          </div>
-
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-server text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
-            <p class="text-gray-300 mb-4">
-              Mengembangkan API yang scalable dan aman dengan arsitektur modern
-              menggunakan Laravel dan NestJS.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Laravel, NestJS, REST API, MySQL</span>
-            </div>
-          </div>
-
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-database text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Database Design</h3>
-            <p class="text-gray-300 mb-4">
-              Merancang struktur database yang optimal, efisien, dan scalable
-              untuk mendukung aplikasi dengan performa tinggi.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>MySQL, PostgreSQL, Database Optimization</span>
-            </div>
-          </div>
-
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-brush text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Graphic Design</h3>
-            <p class="text-gray-300 mb-4">
-              Menciptakan identitas visual yang kuat dan konsisten untuk merek
-              dan produk digital.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Adobe Creative Suite, Brand Identity</span>
-            </div>
-          </div>
-
-          <div class="glass-effect p-8 rounded-2xl card-hover">
-            <div class="skill-icon gradient-bg">
-              <i class="fas fa-camera text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Photography</h3>
-            <p class="text-gray-300 mb-4">
-              Menangkap momen dan menciptakan konten visual yang menarik untuk
-              mendukung storytelling digital.
-            </p>
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Digital Photography, Photo Editing</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="relative py-20">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title text-4xl font-bold">Pengalaman Profesional</h2>
-        <p class="text-xl mb-12 max-w-2xl text-gray-300">
-          Perjalanan kreatif dalam mengembangkan solusi digital yang berdampak.
-        </p>
-
-        <div class="max-w-4xl mx-auto">
-          <!-- Experience 1 -->
-          <div class="timeline-item">
-            <div class="glass-effect p-8 rounded-2xl card-hover">
-              <div class="flex flex-col md:flex-row justify-between mb-6">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">
-                    Bille Southside | Full Stack Developer
-                  </h3>
-                  <div class="flex items-center">
-                    <span class="gradient-text font-medium"
-                      >Agustus - Sekarang</span
-                    >
-                    <span class="mx-2">•</span>
-                    <span class="text-gray-400">Proyek Kontrak</span>
-                  </div>
-                </div>
-                <div class="mt-4 md:mt-0">
-                  <span
-                    class="px-4 py-1 gradient-bg rounded-full text-sm font-medium"
-                    >Remote</span
-                  >
-                </div>
+            <div class="card">
+              <h3 class="text-3xl font-bold mb-4">KOMPETENSI TEKNIS</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">LARAVEL</span>
+                <span class="tech-badge">REACT</span>
+                <span class="tech-badge">NEXT.JS</span>
+                <span class="tech-badge">NESTJS</span>
+                <span class="tech-badge">MYSQL</span>
+                <span class="tech-badge">POSTGRESQL</span>
+                <span class="tech-badge">TAILWIND</span>
+                <span class="tech-badge">FIGMA</span>
+                <span class="tech-badge">Adobe Creative Suite</span>
               </div>
-              <p class="text-gray-300 mb-6">
-                Mengembangkan sistem reservasi online dengan pendekatan kreatif
-                dan UI minimalis yang fokus pada pengalaman pengguna.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengembangkan reservasi online dengan konsep Waiting List
-                    dan UI minimalis.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengimplementasikan sistem manajemen billing, produk, stok,
-                    dan transaksi.</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Experience 2 -->
-          <div class="timeline-item">
-            <div class="glass-effect p-8 rounded-2xl card-hover">
-              <div class="flex flex-col md:flex-row justify-between mb-6">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">
-                    PT. Bangun Kreatif Abadi | Full Stack Developer
-                  </h3>
-                  <div class="flex items-center">
-                    <span class="gradient-text font-medium"
-                      >April - September 2025</span
-                    >
-                    <span class="mx-2">•</span>
-                    <span class="text-gray-400">E-commerce Solution</span>
-                  </div>
-                </div>
-                <div class="mt-4 md:mt-0">
-                  <span
-                    class="px-4 py-1 gradient-bg rounded-full text-sm font-medium"
-                    >Internship</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-300 mb-6">
-                Mengembangkan toko online sepatu dengan konsep limited edition
-                dan pendekatan desain yang minimalis namun powerful.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengembangkan toko sepatu online dengan konsep limited
-                    stock dan UI minimalis.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengimplementasikan sistem manajemen produk, stok, dan
-                    transaksi.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengintegrasikan payment gateway Midtrans untuk pembayaran
-                    online.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Merancang alur user, struktur database, dan logika
-                    bisnis.</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Experience 3 -->
-          <div class="timeline-item">
-            <div class="glass-effect p-8 rounded-2xl card-hover">
-              <div class="flex flex-col md:flex-row justify-between mb-6">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">
-                    PT. Bangun Kreatif Abadi | IT Support (Tap On Bus
-                    Transjakarta)
-                  </h3>
-                  <div class="flex items-center">
-                    <span class="gradient-text font-medium"
-                      >Agustus - September 2025</span
-                    >
-                    <span class="mx-2">•</span>
-                    <span class="text-gray-400">Technical Operations</span>
-                  </div>
-                </div>
-                <div class="mt-4 md:mt-0">
-                  <span
-                    class="px-4 py-1 gradient-bg rounded-full text-sm font-medium"
-                    >Internship</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-300 mb-6">
-                Pengalaman hands-on dalam pemeliharaan sistem teknologi dan
-                operasional lapangan dengan standar tinggi.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Bertugas sebagai teknis dalam perawatan dan pengecekan
-                    perangkat operasional.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Membantu memastikan kelancaran operasional harian melalui
-                    pemeliharaan rutin.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Terbiasa bekerja dengan standar operasional (SOP),
-                    ketelitian, dan tanggung jawab tinggi.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                  <span
-                    >Mengasah kemampuan problem solving dan kerja
-                    lapangan.</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Works Section - BANNER STYLE WITH IMAGE READY -->
-    <section id="projects" class="relative py-20 abstract-bg">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="section-title text-4xl font-bold inline-block">
-            Karya Unggulan
-          </h2>
-          <p class="text-xl mt-8 max-w-3xl mx-auto text-gray-300">
-            Koleksi proyek terbaik yang menggabungkan kreativitas desain dengan
-            implementasi teknis yang solid. Setiap proyek adalah perjalanan unik
-            dalam menciptakan solusi digital yang berdampak.
-          </p>
-        </div>
-
-        <!-- Project 1: Sprotykuy -->
-        <!-- GANTI "sprotykuy-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">01</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="sprotykuy-banner.jpg"
-            alt="Sprotykuy Project Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-purple"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-purple">
-                <i class="fas fa-laptop-code mr-2"></i>WEB APPLICATION
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Sprotykuy</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Platform booking lapangan olahraga dengan sistem sewa alat,
-                pemesanan makanan, dan pembayaran cashless yang terintegrasi
-                sempurna dalam satu ekosistem.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-red-500/20 border border-red-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fab fa-laravel mr-2"></i>Laravel
-                </span>
-                <span
-                  class="px-4 py-2 bg-sky-500/20 border border-sky-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-wind mr-2"></i>Tailwind CSS
-                </span>
-                <span
-                  class="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-credit-card mr-2"></i>Midtrans
-                </span>
-                <span
-                  class="px-4 py-2 bg-yellow-500/20 border border-yellow-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-database mr-2"></i>MySQL
-                </span>
-              </div>
-
-              <a
-                href="https://youtu.be/V2htS-wKiIk"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition group"
-              >
-                <span class="mr-3">Lihat Project</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Footstop -->
-        <!-- GANTI "footstop-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">02</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="footstop-banner.jpg"
-            alt="Footstop Project Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-orange"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-orange">
-                <i class="fas fa-shopping-bag mr-2"></i>E-COMMERCE
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Footstop</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Toko online sepatu eksklusif dengan konsep limited stock, sistem
-                manajemen produk yang komprehensif dan payment gateway
-                terintegrasi untuk pengalaman belanja yang premium.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-slate-500/20 border border-slate-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-bolt mr-2"></i>Next.js
-                </span>
-                <span
-                  class="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fab fa-node-js mr-2"></i>NestJS
-                </span>
-                <span
-                  class="px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-database mr-2"></i>PostgreSQL
-                </span>
-              </div>
-
-              <a
-                href="https://www.figma.com/proto/rHAMhiY1dwlFQGi05HLGMs/FOOTSTOP---Sporty-and-Casual-Shoes-Store?node-id=405-433&p=f&t=t2P7fSLGct8dqMu4-1&scaling=scale-down&content-scaling=fixed&page-id=302%3A379&starting-point-node-id=405%3A433&show-proto-sidebar=1"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/50 transition group"
-              >
-                <span class="mr-3">Lihat Project</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Bille Billiard -->
-        <!-- GANTI "bille-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">03</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="bille-banner.jpg"
-            alt="Bille Billiard Project Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-green"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-green">
-                <i class="fas fa-calendar-alt mr-2"></i>BOOKING SYSTEM
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Bille Billiard</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Sistem reservasi meja billiard dengan waiting list cerdas,
-                manajemen billing terintegrasi, dan UI minimalis yang fokus pada
-                pengalaman pengguna yang seamless.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fab fa-php mr-2"></i>PHP Native
-                </span>
-                <span
-                  class="px-4 py-2 bg-sky-500/20 border border-sky-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-wind mr-2"></i>Tailwind CSS
-                </span>
-                <span
-                  class="px-4 py-2 bg-yellow-500/20 border border-yellow-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-database mr-2"></i>MySQL
-                </span>
-              </div>
-
-              <a
-                href="https://billesouthside.biz.id/"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition group"
-              >
-                <span class="mr-3">Lihat Project</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Neracode -->
-        <!-- GANTI "neracode-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">04</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="neracode-banner.jpg"
-            alt="Neracode Project Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-blue"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-blue">
-                <i class="fas fa-globe mr-2"></i>LANDING PAGE
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Neracode</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Update website resmi Neracode dengan data dan informasi terbaru,
-                menghadirkan pengalaman web yang modern, informatif, dan
-                engaging untuk pengunjung.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fab fa-react mr-2"></i>React
-                </span>
-                <span
-                  class="px-4 py-2 bg-sky-500/20 border border-sky-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-wind mr-2"></i>Tailwind CSS
-                </span>
-                <span
-                  class="px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fab fa-node-js mr-2"></i>Node.js
-                </span>
-              </div>
-
-              <a
-                href="https://neracode.vercel.app/"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition group"
-              >
-                <span class="mr-3">Lihat Project</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: Philosophia -->
-        <!-- GANTI "philosophia-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">05</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="philosophia-banner.jpg"
-            alt="Philosophia Project Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-pink"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-pink">
-                <i class="fas fa-palette mr-2"></i>VISUAL DESIGN
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Philosophia Group Band</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Desain identitas visual lengkap untuk band group, termasuk logo,
-                color palette, typography system, dan brand guidelines yang
-                kohesif dan memorable.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-orange-500/20 border border-orange-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-bezier-curve mr-2"></i>Adobe Illustrator
-                </span>
-                <span
-                  class="px-4 py-2 bg-purple-500/20 border border-purple-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-swatchbook mr-2"></i>Figma
-                </span>
-              </div>
-
-              <a
-                href="https://www.instagram.com/philosophia.group/"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-pink-500/50 transition group"
-              >
-                <span class="mr-3">View Gallery</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6: Photography -->
-        <!-- GANTI "photography-banner.jpg" dengan nama file foto banner kamu -->
-        <div class="project-banner glass-effect">
-          <div class="project-number">06</div>
-
-          <!-- ✅ LETAKKAN FOTO BANNER KAMU DI SINI -->
-          <img
-            src="photography-banner.jpg"
-            alt="Photography Portfolio Banner"
-            class="project-banner-image"
-          />
-          <!-- Jika foto belum ada, hapus tag <img> di atas dan pakai gradient backup di bawah -->
-          <!-- <div class="absolute inset-0 gradient-teal"></div> -->
-
-          <div class="project-banner-overlay">
-            <div class="project-banner-content">
-              <span class="category-badge gradient-teal">
-                <i class="fas fa-camera mr-2"></i>PHOTOGRAPHY
-              </span>
-
-              <h3 class="text-5xl font-bold mb-4">Photography Portfolio</h3>
-
-              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                Koleksi foto produk, portrait, dan landscape dengan teknik
-                komposisi profesional dan post-processing yang meningkatkan
-                storytelling visual dalam setiap frame.
-              </p>
-
-              <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-2 bg-gray-500/20 border border-gray-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-camera mr-2"></i>Digital Photography
-                </span>
-                <span
-                  class="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-sm font-semibold"
-                >
-                  <i class="fas fa-magic mr-2"></i>Adobe Lightroom
-                </span>
-              </div>
-
-              <a
-                href="https://www.instagram.com/urnabnoir/?next=%2Frasya.falqi%2F"
-                target="_blank"
-                class="inline-flex items-center gradient-bg px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-teal-500/50 transition group"
-              >
-                <span class="mr-3">View Gallery</span>
-                <i
-                  class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div
-          class="glass-effect p-12 rounded-3xl text-center card-hover border-2 border-purple-500/20 mt-16"
-        >
-          <div class="max-w-3xl mx-auto">
-            <div
-              class="w-20 h-20 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-rocket text-white text-3xl"></i>
-            </div>
-            <h3 class="text-4xl font-bold mb-4 gradient-text">
-              Tertarik Melihat Lebih Banyak?
-            </h3>
-            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-              Kunjungi portfolio lengkap saya untuk melihat detail proyek, case
-              studies, proses kreatif, dan karya-karya lainnya yang tidak
-              ditampilkan di sini.
-            </p>
-            <a
-              href="https://acarpl.github.io/rasyaporto/"
-              target="_blank"
-              class="gradient-bg text-white px-10 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/40 transition duration-300 inline-flex items-center text-lg group"
-            >
-              <i class="fas fa-external-link-alt mr-3"></i>
-              Kunjungi Portfolio Lengkap
-              <i
-                class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"
-              ></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative py-20">
-      <div class="container mx-auto px-6">
-        <h2 class="section-title text-4xl font-bold">Mari Berkolaborasi</h2>
-        <p class="text-xl mb-12 max-w-2xl text-gray-300">
-          Saya selalu tertarik dengan proyek-proyek menarik. Mari ciptakan
-          sesuatu yang luar biasa bersama!
-        </p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div class="glass-effect p-8 rounded-2xl mb-8 card-hover">
-              <h3 class="text-2xl font-bold mb-6 gradient-text">
-                Hubungi Saya
-              </h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div
-                    class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0"
-                  >
-                    <i class="fas fa-phone text-white"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-lg">Telepon / WhatsApp</h4>
-                    <a
-                      href="tel:+6285161193121"
-                      class="text-gray-300 hover:text-white transition duration-300"
-                      >+62 851-6119-3121</a
-                    >
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0"
-                  >
-                    <i class="fas fa-envelope text-white"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-lg">Email</h4>
-                    <a
-                      href="mailto:rasyafalqi53@gmail.com"
-                      class="text-gray-300 hover:text-white transition duration-300"
-                      >rasyafalqi53@gmail.com</a
-                    >
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0"
-                  >
-                    <i class="fab fa-linkedin-in text-white"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-lg">LinkedIn</h4>
-                    <a
-                      href="https://linkedin.com/in/rasya-gani"
-                      target="_blank"
-                      class="text-gray-300 hover:text-white transition duration-300"
-                      >linkedin.com/in/rasya-gani</a
-                    >
-                    <p class="text-sm text-gray-400 mt-1">
-                      Terhubung untuk networking dan kolaborasi profesional
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0"
-                  >
-                    <i class="fas fa-map-marker-alt text-white"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-lg">Lokasi</h4>
-                    <p class="text-gray-300">
-                      Bekasi Barat, Kota Bekasi, Jawa Barat, Indonesia
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4 flex-shrink-0"
-                  >
-                    <i class="fas fa-globe text-white"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-lg">Portfolio</h4>
-                    <a
-                      href="https://acarpl.github.io/rasyaporto/"
-                      target="_blank"
-                      class="text-gray-300 hover:text-white transition duration-300 underline"
-                      >https://acarpl.github.io/rasyaporto/</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="glass-effect p-8 rounded-2xl card-hover">
-              <h3 class="text-2xl font-bold mb-6">Saya Tersedia Untuk</h3>
-              <div class="space-y-4">
-                <div class="flex items-center">
-                  <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
-                  <span>Full Stack Web Development</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
-                  <span>UI/UX Design & Prototyping</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
-                  <span>E-commerce Solutions</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
-                  <span>Digital Product Consulting</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-3 h-3 gradient-bg rounded-full mr-3"></div>
-                  <span>Technical Collaboration</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="glass-effect p-8 rounded-2xl h-full card-hover">
-              <h3 class="text-2xl font-bold mb-6">Kirim Pesan</h3>
-              <p class="text-gray-300 mb-8">
-                Punya ide proyek menarik? Ingin berdiskusi tentang teknologi?
-                Atau sekadar ingin terhubung? Silakan kirim pesan dan saya akan
-                membalas secepatnya.
-              </p>
-
-              <form class="space-y-6">
-                <div>
-                  <label class="block text-gray-300 mb-2">Nama Anda</label>
-                  <input
-                    type="text"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300"
-                    placeholder="Masukkan nama"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-gray-300 mb-2">Email</label>
-                  <input
-                    type="email"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300"
-                    placeholder="email@contoh.com"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-gray-300 mb-2">Pesan</label>
-                  <textarea
-                    rows="5"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 transition duration-300"
-                    placeholder="Tulis pesan Anda di sini..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="button"
-                  class="gradient-bg text-white px-8 py-3 rounded-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition duration-300 w-full"
-                >
-                  <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
-                </button>
-              </form>
-
-              <div class="mt-8 pt-6 border-t border-slate-700/50">
-                <p class="text-center text-gray-400">
-                  "Kolaborasi kreatif menghasilkan solusi yang lebih baik
-                  daripada bekerja sendiri."
+              <div class="mt-6">
+                <h4 class="font-bold text-xl mb-2">STATUS:</h4>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Tersedia untuk bekerja penuh
+                  waktu
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Terbuka untuk posisi
+                  remote/onsite
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Siap bergabung segera
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- English Version -->
+        <div class="lang-content" data-lang-content="en">
+          <h2 class="section-title text-center">ABOUT ME</h2>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="card">
+              <h3 class="text-3xl font-bold mb-4">
+                PROFESSIONAL FRESH GRADUATE
+              </h3>
+              <p class="text-lg leading-relaxed mb-4">
+                Recent graduate from Software Engineering program at SMKN 1 Kota
+                Bekasi with strong passion in technology and web development.
+              </p>
+              <p class="text-lg leading-relaxed mb-4">
+                Gained hands-on experience in full stack application development
+                through real-world projects and professional internships at
+                technology companies.
+              </p>
+              <p class="text-lg leading-relaxed">
+                Ready to contribute to teams in creating impactful digital
+                solutions using modern technologies and best practices.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="text-3xl font-bold mb-4">TECHNICAL COMPETENCIES</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">LARAVEL</span>
+                <span class="tech-badge">REACT</span>
+                <span class="tech-badge">NEXT.JS</span>
+                <span class="tech-badge">NESTJS</span>
+                <span class="tech-badge">MYSQL</span>
+                <span class="tech-badge">POSTGRESQL</span>
+                <span class="tech-badge">TAILWIND</span>
+                <span class="tech-badge">FIGMA</span>
+                <span class="tech-badge">Adobe Creative Suite</span>
+              </div>
+              <div class="mt-6">
+                <h4 class="font-bold text-xl mb-2">STATUS:</h4>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Available for full-time work
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Open to remote/onsite
+                  positions
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Ready to start immediately
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Running Text 2 - Indonesian -->
+    <div
+      class="running-text-wrapper lang-content active"
+      data-lang-content="id"
+      style="background: #667eea"
+    >
+      <div class="running-text">
+        <span>PENGALAMAN PROFESIONAL • MAGANG & PROYEK • </span>
+        <span>PENGALAMAN PROFESIONAL • MAGANG & PROYEK • </span>
+        <span>PENGALAMAN PROFESIONAL • MAGANG & PROYEK • </span>
+      </div>
+    </div>
+
+    <!-- Running Text 2 - English -->
+    <div
+      class="running-text-wrapper lang-content"
+      data-lang-content="en"
+      style="background: #667eea"
+    >
+      <div class="running-text">
+        <span>PROFESSIONAL EXPERIENCE • INTERNSHIPS & PROJECTS • </span>
+        <span>PROFESSIONAL EXPERIENCE • INTERNSHIPS & PROJECTS • </span>
+        <span>PROFESSIONAL EXPERIENCE • INTERNSHIPS & PROJECTS • </span>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <!-- Indonesian Version -->
+        <div class="lang-content active" data-lang-content="id">
+          <h2 class="section-title text-center">KEAHLIAN PROFESIONAL</h2>
+
+          <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="card">
+              <div class="text-5xl mb-4">🎨</div>
+              <h3 class="text-2xl font-bold mb-3">UI/UX DESIGN</h3>
+              <p class="text-lg">
+                Merancang antarmuka user-friendly dengan pendekatan
+                user-centered design menggunakan Figma dan Adobe XD.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">💻</div>
+              <h3 class="text-2xl font-bold mb-3">FRONTEND DEVELOPMENT</h3>
+              <p class="text-lg">
+                Membangun aplikasi web modern dan responsif dengan React,
+                Next.js, dan Tailwind CSS.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">⚙️</div>
+              <h3 class="text-2xl font-bold mb-3">BACKEND DEVELOPMENT</h3>
+              <p class="text-lg">
+                Mengembangkan REST API yang scalable dengan Laravel dan NestJS.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">🗄️</div>
+              <h3 class="text-2xl font-bold mb-3">DATABASE MANAGEMENT</h3>
+              <p class="text-lg">
+                Merancang dan mengelola database MySQL dan PostgreSQL dengan
+                optimisasi performa.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">🔗</div>
+              <h3 class="text-2xl font-bold mb-3">API INTEGRATION</h3>
+              <p class="text-lg">
+                Integrasi payment gateway, third-party APIs, dan layanan cloud.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">📱</div>
+              <h3 class="text-2xl font-bold mb-3">RESPONSIVE DESIGN</h3>
+              <p class="text-lg">
+                Memastikan tampilan optimal di semua perangkat dan ukuran layar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- English Version -->
+        <div class="lang-content" data-lang-content="en">
+          <h2 class="section-title text-center">PROFESSIONAL SKILLS</h2>
+
+          <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="card">
+              <div class="text-5xl mb-4">🎨</div>
+              <h3 class="text-2xl font-bold mb-3">UI/UX DESIGN</h3>
+              <p class="text-lg">
+                Designing user-friendly interfaces with user-centered design
+                approach using Figma and Adobe XD.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">💻</div>
+              <h3 class="text-2xl font-bold mb-3">FRONTEND DEVELOPMENT</h3>
+              <p class="text-lg">
+                Building modern and responsive web applications with React,
+                Next.js, and Tailwind CSS.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">⚙️</div>
+              <h3 class="text-2xl font-bold mb-3">BACKEND DEVELOPMENT</h3>
+              <p class="text-lg">
+                Developing scalable REST APIs with Laravel and NestJS.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">🗄️</div>
+              <h3 class="text-2xl font-bold mb-3">DATABASE MANAGEMENT</h3>
+              <p class="text-lg">
+                Designing and managing MySQL and PostgreSQL databases with
+                performance optimization.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">🔗</div>
+              <h3 class="text-2xl font-bold mb-3">API INTEGRATION</h3>
+              <p class="text-lg">
+                Integrating payment gateways, third-party APIs, and cloud
+                services.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="text-5xl mb-4">📱</div>
+              <h3 class="text-2xl font-bold mb-3">RESPONSIVE DESIGN</h3>
+              <p class="text-lg">
+                Ensuring optimal display across all devices and screen sizes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Running Text 3 - Indonesian -->
+    <div
+      class="running-text-wrapper lang-content active"
+      data-lang-content="id"
+      style="background: #f5576c"
+    >
+      <div class="running-text">
+        <span>PORTFOLIO • KARYA & PROYEK • </span>
+        <span>PORTFOLIO • KARYA & PROYEK • </span>
+        <span>PORTFOLIO • KARYA & PROYEK • </span>
+      </div>
+    </div>
+
+    <!-- Running Text 3 - English -->
+    <div
+      class="running-text-wrapper lang-content"
+      data-lang-content="en"
+      style="background: #f5576c"
+    >
+      <div class="running-text">
+        <span>PORTFOLIO • WORKS & PROJECTS • </span>
+        <span>PORTFOLIO • WORKS & PROJECTS • </span>
+        <span>PORTFOLIO • WORKS & PROJECTS • </span>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <!-- Indonesian Version -->
+        <div class="lang-content active" data-lang-content="id">
+          <h2 class="section-title text-center mb-12">PORTFOLIO PROYEK</h2>
+
+          <!-- Project 1: Sprotykuy -->
+          <div class="project-banner">
+            <img
+              src="sportykuy-banner.jpg"
+              alt="Sprotykuy Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">SPROTYKUY</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  APLIKASI WEB • SISTEM BOOKING
+                </p>
+              </div>
+              <a
+                href="https://youtu.be/V2htS-wKiIk"
+                target="_blank"
+                class="btn-primary"
+              >
+                LIHAT PROYEK →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Platform booking lapangan olahraga terintegrasi dengan sistem sewa
+              alat, pemesanan makanan, dan pembayaran cashless. Proyek ini
+              mendemonstrasikan kemampuan full stack development dan integrasi
+              payment gateway.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">LARAVEL</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">MIDTRANS</span>
+              <span class="tech-badge">MYSQL</span>
+            </div>
+          </div>
+
+          <!-- Project 2: Footstop -->
+          <div class="project-banner">
+            <img
+              src="footstop-banner.jpg"
+              alt="Footstop Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">FOOTSTOP</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  E-COMMERCE • PROYEK MAGANG
+                </p>
+              </div>
+              <a
+                href="https://www.figma.com/proto/rHAMhiY1dwlFQGi05HLGMs/FOOTSTOP---Sporty-and-Casual-Shoes-Store?node-id=405-433&p=f&t=t2P7fSLGct8dqMu4-1&scaling=scale-down&content-scaling=fixed&page-id=302%3A379&starting-point-node-id=405%3A433&show-proto-sidebar=1"
+                target="_blank"
+                class="btn-primary"
+              >
+                LIHAT PROYEK →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Dikembangkan selama magang di PT. Bangun Kreatif Abadi (April -
+              September 2025). Toko online sepatu dengan konsep limited stock,
+              sistem manajemen produk komprehensif, dan integrasi payment
+              gateway Midtrans.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">NEXT.JS</span>
+              <span class="tech-badge">NESTJS</span>
+              <span class="tech-badge">POSTGRESQL</span>
+            </div>
+          </div>
+
+          <!-- Project 3: Bille Billiard -->
+          <div class="project-banner">
+            <img
+              src="bille-banner.jpg"
+              alt="Bille Billiard Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">BILLE BILLIARD</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  SISTEM RESERVASI • PROYEK KONTRAK
+                </p>
+              </div>
+              <a
+                href="https://billesouthside.biz.id/"
+                target="_blank"
+                class="btn-primary"
+              >
+                LIHAT PROYEK →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Sistem reservasi meja billiard dengan fitur waiting list dan
+              manajemen billing terintegrasi. Proyek kontrak yang sedang
+              berjalan (Agustus 2025 - Sekarang).
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">PHP NATIVE</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">MYSQL</span>
+            </div>
+          </div>
+
+          <!-- Project 4: Neracode -->
+          <!-- <div class="project-banner">
+            <img
+              src="neracode-banner.jpg"
+              alt="Neracode Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">NERACODE WEBSITE</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  LANDING PAGE • REDESIGN
+                </p>
+              </div>
+              <a
+                href="https://neracode.vercel.app/"
+                target="_blank"
+                class="btn-primary"
+              >
+                LIHAT PROYEK →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Update dan redesign website resmi Neracode dengan teknologi modern
+              dan UX yang lebih baik.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">REACT</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">NODE.JS</span>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- English Version -->
+        <div class="lang-content" data-lang-content="en">
+          <h2 class="section-title text-center mb-12">PROJECT PORTFOLIO</h2>
+
+          <!-- Project 1: Sprotykuy -->
+          <div class="project-banner">
+            <img
+              src="sportykuy-banner.jpg"
+              alt="Sprotykuy Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">SPROTYKUY</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  WEB APPLICATION • BOOKING SYSTEM
+                </p>
+              </div>
+              <a
+                href="https://youtu.be/V2htS-wKiIk"
+                target="_blank"
+                class="btn-primary"
+              >
+                VIEW PROJECT →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Sports field booking platform integrated with equipment rental,
+              food ordering, and cashless payment systems. This project
+              demonstrates full stack development capabilities and payment
+              gateway integration.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">LARAVEL</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">MIDTRANS</span>
+              <span class="tech-badge">MYSQL</span>
+            </div>
+          </div>
+
+          <!-- Project 2: Footstop -->
+          <div class="project-banner">
+            <img
+              src="footstop-banner.jpg"
+              alt="Footstop Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">FOOTSTOP</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  E-COMMERCE • INTERNSHIP PROJECT
+                </p>
+              </div>
+              <a
+                href="https://www.figma.com/proto/rHAMhiY1dwlFQGi05HLGMs/FOOTSTOP---Sporty-and-Casual-Shoes-Store?node-id=405-433&p=f&t=t2P7fSLGct8dqMu4-1&scaling=scale-down&content-scaling=fixed&page-id=302%3A379&starting-point-node-id=405%3A433&show-proto-sidebar=1"
+                target="_blank"
+                class="btn-primary"
+              >
+                VIEW PROJECT →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Developed during internship at PT. Bangun Kreatif Abadi (April -
+              September 2025). Online shoe store with limited stock concept,
+              comprehensive product management system, and Midtrans payment
+              gateway integration.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">NEXT.JS</span>
+              <span class="tech-badge">NESTJS</span>
+              <span class="tech-badge">POSTGRESQL</span>
+            </div>
+          </div>
+
+          <!-- Project 3: Bille Billiard -->
+          <div class="project-banner">
+            <img
+              src="bille-banner.jpg"
+              alt="Bille Billiard Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">BILLE BILLIARD</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  RESERVATION SYSTEM • CONTRACT PROJECT
+                </p>
+              </div>
+              <a
+                href="https://billesouthside.biz.id/"
+                target="_blank"
+                class="btn-primary"
+              >
+                VIEW PROJECT →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Billiard table reservation system with waiting list feature and
+              integrated billing management. Ongoing contract project (August
+              2025 - Present).
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">PHP NATIVE</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">MYSQL</span>
+            </div>
+          </div>
+
+          <!-- Project 4: Neracode -->
+          <!-- <div class="project-banner">
+            <img
+              src="neracode-banner.jpg"
+              alt="Neracode Project"
+              class="project-banner-img"
+            />
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start mb-6 gap-4"
+            >
+              <div>
+                <h3 class="text-4xl font-black mb-2">NERACODE WEBSITE</h3>
+                <p class="text-xl font-bold text-gray-600">
+                  LANDING PAGE • REDESIGN
+                </p>
+              </div>
+              <a
+                href="https://neracode.vercel.app/"
+                target="_blank"
+                class="btn-primary"
+              >
+                VIEW PROJECT →
+              </a>
+            </div>
+            <p class="text-lg mb-4 leading-relaxed">
+              Update and redesign of Neracode official website with modern
+              technology and improved UX.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">REACT</span>
+              <span class="tech-badge">TAILWIND CSS</span>
+              <span class="tech-badge">NODE.JS</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Running Text 4 - Indonesian -->
+    <div
+      class="running-text-wrapper lang-content active"
+      data-lang-content="id"
+      style="background: #00f2fe"
+    >
+      <div class="running-text">
+        <span>SIAP BEKERJA • MENCARI PELUANG KARIR • </span>
+        <span>SIAP BEKERJA • MENCARI PELUANG KARIR • </span>
+        <span>SIAP BEKERJA • MENCARI PELUANG KARIR • </span>
+      </div>
+    </div>
+
+    <!-- Running Text 4 - English -->
+    <div
+      class="running-text-wrapper lang-content"
+      data-lang-content="en"
+      style="background: #00f2fe"
+    >
+      <div class="running-text">
+        <span>READY TO WORK • SEEKING CAREER OPPORTUNITIES • </span>
+        <span>READY TO WORK • SEEKING CAREER OPPORTUNITIES • </span>
+        <span>READY TO WORK • SEEKING CAREER OPPORTUNITIES • </span>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <!-- Indonesian Version -->
+        <div class="lang-content active" data-lang-content="id">
+          <h2 class="section-title text-center">HUBUNGI SAYA</h2>
+
+          <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-6">INFORMASI KONTAK</h3>
+
+              <div class="space-y-4">
+                <div>
+                  <p class="font-bold mb-1">TELEPON / WHATSAPP</p>
+                  <a href="tel:+6285161193121" class="text-lg hover:underline"
+                    >+62 851-6119-3121</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">EMAIL</p>
+                  <a
+                    href="mailto:rasyafalqi53@gmail.com"
+                    class="text-lg hover:underline"
+                    >rasyafalqi53@gmail.com</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">LINKEDIN</p>
+                  <a
+                    href="https://linkedin.com/in/rasya-gani"
+                    target="_blank"
+                    class="text-lg hover:underline"
+                    >linkedin.com/in/rasya-gani</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">LOKASI</p>
+                  <p class="text-lg">Bekasi, Jawa Barat, Indonesia</p>
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">PENDIDIKAN</p>
+                  <p class="text-lg">SMKN 1 Kota Bekasi</p>
+                  <p class="text-gray-600">Rekayasa Perangkat Lunak</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-6">MENCARI POSISI</h3>
+
+              <ul class="space-y-3 text-lg">
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Full Stack Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Frontend Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Backend Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Web Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  UI/UX Designer
+                </li>
+              </ul>
+
+              <div class="mt-6 pt-6 border-t-2 border-black">
+                <p class="font-bold mb-2">PREFERENSI:</p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Remote / Onsite / Hybrid
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Full-time / Contract
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Siap mulai segera
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <a
+              href="https://acarpl.github.io/rasyaporto/"
+              target="_blank"
+              class="btn-primary text-xl px-12 py-4"
+            >
+              LIHAT CV LENGKAP →
+            </a>
+          </div>
+        </div>
+
+        <!-- English Version -->
+        <div class="lang-content" data-lang-content="en">
+          <h2 class="section-title text-center">CONTACT ME</h2>
+
+          <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-6">CONTACT INFORMATION</h3>
+
+              <div class="space-y-4">
+                <div>
+                  <p class="font-bold mb-1">PHONE / WHATSAPP</p>
+                  <a href="tel:+6285161193121" class="text-lg hover:underline"
+                    >+62 851-6119-3121</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">EMAIL</p>
+                  <a
+                    href="mailto:rasyafalqi53@gmail.com"
+                    class="text-lg hover:underline"
+                    >rasyafalqi53@gmail.com</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">LINKEDIN</p>
+                  <a
+                    href="https://linkedin.com/in/rasya-gani"
+                    target="_blank"
+                    class="text-lg hover:underline"
+                    >linkedin.com/in/rasya-gani</a
+                  >
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">LOCATION</p>
+                  <p class="text-lg">Bekasi, West Java, Indonesia</p>
+                </div>
+
+                <div>
+                  <p class="font-bold mb-1">EDUCATION</p>
+                  <p class="text-lg">SMKN 1 Kota Bekasi</p>
+                  <p class="text-gray-600">Software Engineering</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="text-2xl font-bold mb-6">SEEKING POSITIONS</h3>
+
+              <ul class="space-y-3 text-lg">
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Full Stack Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Frontend Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Backend Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  Web Developer
+                </li>
+                <li class="flex items-center">
+                  <span class="w-3 h-3 bg-black mr-3"></span>
+                  UI/UX Designer
+                </li>
+              </ul>
+
+              <div class="mt-6 pt-6 border-t-2 border-black">
+                <p class="font-bold mb-2">PREFERENCES:</p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Remote / Onsite / Hybrid
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Full-time / Contract
+                </p>
+                <p class="text-lg">
+                  <i class="fa-solid fa-check"></i> Available immediately
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <a
+              href="https://acarpl.github.io/rasyaporto/"
+              target="_blank"
+              class="btn-primary text-xl px-12 py-4"
+            >
+              VIEW FULL CV →
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900/80 border-t border-slate-800 py-10">
+    <footer class="footer py-12">
       <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <div class="flex items-center space-x-3 mb-4">
-              <div
-                class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center"
-              >
-                <span class="font-bold text-white">RF</span>
+        <!-- Indonesian Version -->
+        <div class="lang-content active" data-lang-content="id">
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-white flex items-center justify-center border-2 border-white"
+                >
+                  <span class="text-black font-bold text-xl">RF</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">RASYA FALQI GANI</h3>
+                  <p class="text-sm">Full Stack Developer • Fresh Graduate</p>
+                </div>
               </div>
-              <div>
-                <h3 class="text-xl font-bold">Rasya Falqi Gani</h3>
-                <p class="text-sm text-gray-400">
-                  Creative Developer & IT Specialist
-                </p>
+              <p class="text-gray-300">
+                Lulusan baru yang siap berkontribusi dalam menciptakan solusi
+                digital dengan teknologi modern dan best practices.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold mb-4 text-xl">MEDIA SOSIAL</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/rasya.falqi/"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a
+                  href="https://linkedin.com/in/rasya-gani"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a
+                  href="https://github.com/acarpl"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a
+                  href="mailto:rasyafalqi53@gmail.com"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fas fa-envelope text-2xl"></i>
+                </a>
               </div>
             </div>
-            <p class="text-gray-400 max-w-md">
-              Menggabungkan teknologi modern dengan kreativitas desain untuk
-              menciptakan pengalaman digital yang memorable dan functional.
-            </p>
           </div>
 
-          <div class="flex space-x-4">
-            <a
-              href="mailto:rasyafalqi53@gmail.com"
-              class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300"
-            >
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a
-              href="tel:+6285161193121"
-              class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300"
-            >
-              <i class="fas fa-phone"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/rasya-gani"
-              target="_blank"
-              class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://acarpl.github.io/rasyaporto/"
-              target="_blank"
-              class="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:gradient-bg transition duration-300"
-            >
-              <i class="fas fa-globe"></i>
-            </a>
+          <div class="border-t-2 border-white pt-8 text-center">
+            <p>&copy; 2025 RASYA FALQI GANI. SEMUA HAK DILINDUNGI.</p>
+            <p class="mt-2 text-sm">
+              Fresh Graduate • Siap Bekerja • Mencari Peluang Karir
+            </p>
           </div>
         </div>
 
-        <div
-          class="mt-8 pt-6 border-t border-slate-800 text-center text-gray-400"
-        >
-          <p>&copy; 2025 Rasya Falqi Gani. All creative rights reserved.</p>
-          <p class="mt-1 text-sm">
-            Portfolio statis dengan tema creative abstract modern.
-          </p>
+        <!-- English Version -->
+        <div class="lang-content" data-lang-content="en">
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-white flex items-center justify-center border-2 border-white"
+                >
+                  <span class="text-black font-bold text-xl">RF</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">RASYA FALQI GANI</h3>
+                  <p class="text-sm">Full Stack Developer • Fresh Graduate</p>
+                </div>
+              </div>
+              <p class="text-gray-300">
+                Fresh graduate ready to contribute in creating digital solutions
+                with modern technologies and best practices.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold mb-4 text-xl">SOCIAL MEDIA</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/rasya.falqi/"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a
+                  href="https://linkedin.com/in/rasya-gani"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a
+                  href="https://github.com/acarpl"
+                  target="_blank"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a
+                  href="mailto:rasyafalqi53@gmail.com"
+                  class="text-white hover:text-gray-300 transition"
+                >
+                  <i class="fas fa-envelope text-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t-2 border-white pt-8 text-center">
+            <p>&copy; 2025 RASYA FALQI GANI. ALL RIGHTS RESERVED.</p>
+            <p class="mt-2 text-sm">
+              Fresh Graduate • Ready to Work • Seeking Career Opportunities
+            </p>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <button
       id="backToTop"
-      class="fixed bottom-6 right-6 w-14 h-14 gradient-bg text-white rounded-xl shadow-2xl flex items-center justify-center hover:shadow-purple-500/30 transition duration-300 hidden z-40"
+      class="fixed bottom-6 right-6 w-14 h-14 bg-black text-white border-2 border-black hover:bg-white hover:text-black transition hidden z-50"
     >
-      <i class="fas fa-arrow-up text-lg"></i>
+      <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <script>
+      // Language Switcher
+      const langButtons = document.querySelectorAll(".lang-btn");
+      const langContents = document.querySelectorAll(".lang-content");
+      const navLinks = document.querySelectorAll("[data-nav]");
+
+      // Navigation text translations
+      const navTranslations = {
+        id: {
+          home: "HOME",
+          about: "TENTANG",
+          skills: "KEAHLIAN",
+          projects: "PROYEK",
+          contact: "KONTAK",
+        },
+        en: {
+          home: "HOME",
+          about: "ABOUT",
+          skills: "SKILLS",
+          projects: "PROJECTS",
+          contact: "CONTACT",
+        },
+      };
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selectedLang = button.getAttribute("data-lang");
+
+          // Update active button
+          langButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          // Update content visibility
+          langContents.forEach((content) => {
+            if (content.getAttribute("data-lang-content") === selectedLang) {
+              content.classList.add("active");
+            } else {
+              content.classList.remove("active");
+            }
+          });
+
+          // Update navigation text
+          navLinks.forEach((link) => {
+            const navKey = link.getAttribute("data-nav");
+            link.textContent = navTranslations[selectedLang][navKey];
+          });
+
+          // Update HTML lang attribute
+          document.documentElement.lang = selectedLang;
+        });
+      });
+
       // Back to Top Button
       const backToTopButton = document.getElementById("backToTop");
 
@@ -1521,10 +1417,8 @@
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-
           const targetId = this.getAttribute("href");
           if (targetId === "#") return;
-
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
@@ -1533,29 +1427,6 @@
             });
           }
         });
-      });
-
-      // Form submission simulation
-      document
-        .querySelector("form button")
-        .addEventListener("click", function () {
-          const name = document.querySelector('input[type="text"]').value;
-          const email = document.querySelector('input[type="email"]').value;
-          const message = document.querySelector("textarea").value;
-
-          if (name && email && message) {
-            alert(
-              `Terima kasih ${name}! Pesan Anda telah dikirim. Saya akan membalas ke ${email} segera.`,
-            );
-            document.querySelector("form").reset();
-          } else {
-            alert("Harap lengkapi semua field sebelum mengirim pesan.");
-          }
-        });
-
-      // Add floating animation to multiple elements
-      document.querySelectorAll(".floating").forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.2}s`;
       });
     </script>
   </body>
